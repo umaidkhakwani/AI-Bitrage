@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/AI-Bitrage/static/css/main.d1d11fa4.css",
+    "main.js": "/AI-Bitrage/static/js/main.ead1cc42.js",
+    "static/media/home2.gif": "/AI-Bitrage/static/media/home2.b6b5380bce7a2af3f3a2.gif",
+    "static/media/animation5.gif": "/AI-Bitrage/static/media/animation5.3a746b0642881f2225c4.gif",
+    "static/media/animation4.gif": "/AI-Bitrage/static/media/animation4.5b281ce2df9054dc327f.gif",
+    "static/media/animation6.gif": "/AI-Bitrage/static/media/animation6.e7226a3cffe89b2df946.gif",
+    "static/media/background2.png": "/AI-Bitrage/static/media/background2.91cab305e2fad6fad6a6.png",
+    "static/media/animation1.gif": "/AI-Bitrage/static/media/animation1.f93bf496164d3d7dd167.gif",
+    "static/media/animation2.gif": "/AI-Bitrage/static/media/animation2.fb98ed48ba7c4f803249.gif",
+    "static/media/animation3.gif": "/AI-Bitrage/static/media/animation3.0a088dab2765a799df72.gif",
+    "static/media/background3.png": "/AI-Bitrage/static/media/background3.39db3805ffde9296db7d.png",
+    "static/media/background1.png": "/AI-Bitrage/static/media/background1.a115d267cfb0031c86ab.png",
+    "static/media/bug.png": "/AI-Bitrage/static/media/bug.2f74e44cab01c576d20e.png",
+    "static/media/bug_background.png": "/AI-Bitrage/static/media/bug_background.3f91a4f754adfada1977.png",
+    "static/media/Poppins-Regular.ttf": "/AI-Bitrage/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
+    "static/media/Buenard-Regular.ttf": "/AI-Bitrage/static/media/Buenard-Regular.63b01e5f1e1735bdd6d9.ttf",
+    "static/media/Maragsâ.otf": "/AI-Bitrage/static/media/Maragsâ.301ff0b32b330ab495bc.otf",
+    "static/media/cards.png": "/AI-Bitrage/static/media/cards.2cbb18b7a8e198393ef4.png",
+    "static/media/sidebar.png": "/AI-Bitrage/static/media/sidebar.290eee15987acb0c2cf8.png",
+    "static/media/table_color.png": "/AI-Bitrage/static/media/table_color.ca995d2691633dbebf54.png",
+    "static/media/Pool.png": "/AI-Bitrage/static/media/Pool.ada0726beef0680142c0.png",
+    "index.html": "/AI-Bitrage/index.html",
+    "main.d1d11fa4.css.map": "/AI-Bitrage/static/css/main.d1d11fa4.css.map",
+    "main.ead1cc42.js.map": "/AI-Bitrage/static/js/main.ead1cc42.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d1d11fa4.css",
+    "static/js/main.ead1cc42.js"
+  ]
+}
