@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Maragsa';
+    src: url('./Maragsâ.otf') format('opentype');
+  }
+  
+@font-face {
+    font-family: 'Poppins';
+    src: url('./Poppins-Regular.ttf') format('opentype');
+  }
+  
+@font-face {
+    font-family: 'Buenard';
+    src: url('./Buenard-Regular.ttf') format('opentype');
+  }
+  
