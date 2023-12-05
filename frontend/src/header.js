@@ -30,9 +30,15 @@ import Privacy_policy from "./pages/privacy_policy";
 import Cookie_policy from "./pages/cookie_policy";
 import Report_bug from "./pages/report_bug";
 import Not_found from "./pages/not_found";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 
 function Header_Function() {
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isSmScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const matches = useMediaQuery("(min-width:600px)");
 
   const [value, setValue] = useState(-1);
   const [page, setPage] = useState(-1);
@@ -53,12 +59,10 @@ function Header_Function() {
   const handleChange_footer = (newValue) => {
     console.log("newValue", newValue);
     setValue(newValue);
-    // if(newValue === 0){
-    //   navigate("/blog");
-    // <Homepage />
-    // }else if(newValue === 4){
-    //     navigate("/docs");
-    // }
+  };
+
+  const handleClick = () => {
+    navigate("/app");
   };
 
   return (
@@ -92,9 +96,12 @@ function Header_Function() {
               sx={{
                 display: "flex",
                 alignItems: "center",
+                flexWrap: "wrap",
+                flexDirection: isSmScreen ? "column" : "row",
                 justifyContent: "space-between",
                 borderBottom: 1,
                 borderColor: "divider",
+                // direction: isSmScreen ? "column" : "row",
                 width: "100%",
                 margin: "auto",
                 marginBottom: 2, // Adjust the margin as needed
@@ -112,10 +119,16 @@ function Header_Function() {
               <Tabs
                 value={value}
                 onChange={handleChange}
-                centered
+                variant="scrollable"
+                scrollButtons="auto"
+                aria-label="scrollable auto tabs example"
                 sx={{
                   backgroundColor: "transparent", // Set tabs background to transparent
-                  width: "60%", // Adjust the width here
+                  width: "50%", // Adjust the width here
+                  '& .MuiTabs-scrollButtons': {
+                    // Customize the color of the scroll buttons here
+                    color: 'white', // Replace with your desired color
+                  },
                 }}
               >
                 <Tab label="Blogs" sx={{ color: "white" }} />
@@ -145,6 +158,7 @@ function Header_Function() {
                   color: "#3D073F",
                   borderRadius: "20px",
                 }}
+                onClick={handleClick}
               >
                 Launch App
               </Button>

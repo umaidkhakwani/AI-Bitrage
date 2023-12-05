@@ -12,4 +12,8 @@
     font-family: 'Buenard';
     src: url('./Buenard-Regular.ttf') format('opentype');
   }
-  
+
+@font-face {
+    font-family: 'Poly';
+    src: url('./Poly-Regular.ttf') format('opentype');
+}

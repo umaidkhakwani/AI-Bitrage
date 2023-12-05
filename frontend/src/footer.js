@@ -8,14 +8,18 @@ import "./fonts/fonts.css";
 import Header_Function from "./header";
 
 import { Link, useNavigate } from "react-router-dom";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
-
-function FooterFunction({callback}) {
+function FooterFunction({ callback }) {
+  const theme = useTheme();
+  const isSmScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const matches = useMediaQuery("(min-width:600px)");
 
   const handleclick = (val) => {
-    console.log("footer",val);
+    console.log("footer", val);
     callback(val);
-  }
+  };
 
   return (
     <footer>
@@ -27,17 +31,19 @@ function FooterFunction({callback}) {
         }}
       ></Container>
       <Grid container sx={{ direction: "column" }}>
+        {/* Footer Logo */}
+
         <Grid
           item
+          xs={12}
+          md={12}
+          lg={12}
           sx={{
             margin: "20px auto",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
-          xs={12}
-          md={12}
-          lg={12}
         >
           <img
             src={footer_img}
@@ -45,9 +51,11 @@ function FooterFunction({callback}) {
             style={{ margin: "0px auto", height: "120px" }}
           />
         </Grid>
+
+        {/* Footer Links and Texts*/}
         <Grid
           item
-          sx={{ margin: "0px auto", height: "210px" }}
+          sx={{ margin: "0px auto", height: "auto" }}
           sm={12}
           md={12}
           lg={8}
@@ -55,8 +63,11 @@ function FooterFunction({callback}) {
           <Grid container sx={{ direction: "row", height: "100%" }}>
             <Grid
               item
+              sm={6}
+              md={6}
+              lg={3}
               sx={{
-                margin: "0px auto",
+                margin: "0px auto 20px auto",
                 display: "column",
                 justifyContent: "flex-start",
                 alignItems: "flex-start",
@@ -66,9 +77,10 @@ function FooterFunction({callback}) {
                 variant="h6"
                 sx={{
                   fontFamily: "Lora",
-                  fontSize: "30px",
+                  fontSize: isSmScreen ? "20px" : "30px",
                   color: "white",
                   lineHeight: "1.2",
+                  textAlign: "center",
                 }}
               >
                 Policies
@@ -79,27 +91,29 @@ function FooterFunction({callback}) {
                 variant="h6"
                 sx={{
                   fontFamily: "Lora",
-                  fontSize: "20px",
+                  fontSize: isSmScreen ? "16px" : "20px",
                   color: "white",
                   lineHeight: "1.2",
-                  cursor:"pointer",
+                  cursor: "pointer",
                   textDecoration: "underline",
+                  textAlign: "center",
                 }}
                 onClick={() => handleclick(10)}
-
               >
-                Terms of use 
+                Terms of use
                 <br />
               </Typography>
               <Typography
                 variant="h6"
                 sx={{
                   fontFamily: "Lora",
-                  fontSize: "20px",
+                  fontSize: isSmScreen ? "16px" : "20px",
+
                   color: "white",
                   lineHeight: "1.2",
-                  cursor:"pointer",
+                  cursor: "pointer",
                   textDecoration: "underline",
+                  textAlign: "center",
                 }}
                 onClick={() => handleclick(11)}
               >
@@ -110,14 +124,15 @@ function FooterFunction({callback}) {
                 variant="h6"
                 sx={{
                   fontFamily: "Lora",
-                  fontSize: "20px",
+                  fontSize: isSmScreen ? "16px" : "20px",
+
                   color: "white",
                   lineHeight: "1.2",
-                  cursor:"pointer",
+                  cursor: "pointer",
                   textDecoration: "underline",
+                  textAlign: "center",
                 }}
                 onClick={() => handleclick(12)}
-
               >
                 Privacy Policy
                 <br />
@@ -125,8 +140,11 @@ function FooterFunction({callback}) {
             </Grid>
             <Grid
               item
+              sm={6}
+              md={6}
+              lg={3}
               sx={{
-                margin: "0px auto",
+                margin: "0px auto 20px auto",
                 display: "column",
                 justifyContent: "flex-start",
                 alignItems: "center",
@@ -136,9 +154,11 @@ function FooterFunction({callback}) {
                 variant="h6"
                 sx={{
                   fontFamily: "Lora",
-                  fontSize: "30px",
+                  fontSize: isSmScreen ? "20px" : "30px",
+
                   color: "white",
                   lineHeight: "1.2",
+                  textAlign: "center",
                 }}
               >
                 AI-BITRAGE
@@ -149,9 +169,11 @@ function FooterFunction({callback}) {
                 variant="h6"
                 sx={{
                   fontFamily: "Lora",
-                  fontSize: "20px",
+                  fontSize: isSmScreen ? "16px" : "20px",
+
                   color: "white",
                   lineHeight: "1.2",
+                  textAlign: "center",
                 }}
               >
                 Trade/Swap
@@ -165,8 +187,11 @@ function FooterFunction({callback}) {
             </Grid>
             <Grid
               item
+              sm={6}
+              md={6}
+              lg={3}
               sx={{
-                margin: "0px auto",
+                margin: "0px auto 20px auto",
                 display: "column",
                 justifyContent: "flex-start",
                 alignItems: "center",
@@ -176,9 +201,11 @@ function FooterFunction({callback}) {
                 variant="h6"
                 sx={{
                   fontFamily: "Lora",
-                  fontSize: "30px",
+                  fontSize: isSmScreen ? "20px" : "30px",
+
                   color: "white",
                   lineHeight: "1.2",
+                  textAlign: "center",
                 }}
               >
                 Developers
@@ -189,11 +216,13 @@ function FooterFunction({callback}) {
                 variant="h6"
                 sx={{
                   fontFamily: "Lora",
-                  fontSize: "20px",
+                  fontSize: isSmScreen ? "16px" : "20px",
+
                   color: "white",
                   lineHeight: "1.2",
                   textDecoration: "underline",
-                  cursor:"pointer",
+                  cursor: "pointer",
+                  textAlign: "center",
                 }}
                 onClick={() => handleclick(4)}
               >
@@ -204,11 +233,13 @@ function FooterFunction({callback}) {
                 variant="h6"
                 sx={{
                   fontFamily: "Lora",
-                  fontSize: "20px",
+                  fontSize: isSmScreen ? "16px" : "20px",
+
                   color: "white",
                   lineHeight: "1.2",
                   textDecoration: "underline",
-                  cursor:"pointer",
+                  cursor: "pointer",
+                  textAlign: "center",
                 }}
                 onClick={() => handleclick(13)}
               >
@@ -218,8 +249,11 @@ function FooterFunction({callback}) {
             </Grid>
             <Grid
               item
+              sm={6}
+              md={6}
+              lg={3}
               sx={{
-                margin: "0px auto",
+                margin: "0px auto 20px auto",
                 display: "column",
                 justifyContent: "flex-start",
                 alignItems: "center",
@@ -229,9 +263,11 @@ function FooterFunction({callback}) {
                 variant="h6"
                 sx={{
                   fontFamily: "Lora",
-                  fontSize: "30px",
+                  fontSize: isSmScreen ? "20px" : "30px",
+
                   color: "white",
                   lineHeight: "1.2",
+                  textAlign: "center",
                 }}
               >
                 Community
@@ -242,9 +278,11 @@ function FooterFunction({callback}) {
                 variant="h6"
                 sx={{
                   fontFamily: "Lora",
-                  fontSize: "20px",
+                  fontSize: isSmScreen ? "16px" : "20px",
+
                   color: "white",
                   lineHeight: "1.2",
+                  textAlign: "center",
                 }}
               >
                 Discord
@@ -261,6 +299,9 @@ function FooterFunction({callback}) {
             </Grid>
           </Grid>
         </Grid>
+
+        {/* Social Media icons */}
+
         <Grid
           item
           sx={{ margin: "0px auto", height: "50px" }}
@@ -295,7 +336,10 @@ function FooterFunction({callback}) {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item lg={12}>
+
+        {/* Bottom White line */}
+
+        <Grid item xs={12} sm={12} md={12} lg={12}>
           <Container
             sx={{
               height: "2px",
@@ -304,6 +348,9 @@ function FooterFunction({callback}) {
             }}
           ></Container>
         </Grid>
+
+        {/* Copyright */}
+
         <Grid item lg={12}>
           <Typography
             sx={{

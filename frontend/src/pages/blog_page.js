@@ -1,12 +1,16 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useMediaQuery  } from "@mui/material";
 
 import animation5 from "../images/animation5.gif";
 
 import "../fonts/fonts.css";
 import FooterFunction from "../footer";
+import { useTheme } from "@mui/system";
 
 function Blog_page() {
+  const theme = useTheme();
+  const isMdLgScreen = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <div>
       <Grid
@@ -16,7 +20,7 @@ function Blog_page() {
         sx={{ marginTop: "150px" }}
       >
         <Grid item xs={0} md={4}></Grid>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={10} sm={10} md={4}>
           <Typography
             variant="body1"
             align="center"
@@ -84,13 +88,15 @@ function Blog_page() {
         </Grid>
 
         {/* Image */}
+       {isMdLgScreen && (
         <Grid item xs={12} md={4}>
           <img
             src={animation5}
             alt="Documentation Image"
-            style={{ width: "100%", height: "auto", marginTop:"100%"}}
+            style={{ width: "100%", height: "auto", marginTop: "100%" }}
           />
         </Grid>
+      )}
       </Grid>
       {/* <FooterFunction /> */}
     </div>
