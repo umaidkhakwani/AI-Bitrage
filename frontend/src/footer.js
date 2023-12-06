@@ -154,7 +154,7 @@ function FooterFunction({ callback }) {
                 variant="h6"
                 sx={{
                   fontFamily: "Lora",
-                  fontSize: isSmScreen ? "20px" : "30px",
+                  fontSize: isSmScreen ? "16px" : "30px",
 
                   color: "white",
                   lineHeight: "1.2",
@@ -351,12 +351,15 @@ function FooterFunction({ callback }) {
 
         {/* Copyright */}
 
-        <Grid item lg={12}>
+        <Grid item xs={12} sm={12} md={12} lg={12}>
           <Typography
             sx={{
               textAlign: "center",
               color: "white",
-              margin: "10px 50px 10px 10px",
+              display: "flex",
+              justifyContent: "center",
+              margin:"15px",
+              alignItems: "center",
               fontFamily: "Poppins",
               fontSize: 20,
             }}

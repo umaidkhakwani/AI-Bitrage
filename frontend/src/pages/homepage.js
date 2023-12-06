@@ -31,6 +31,9 @@ import animation4 from "../images/animation4.gif";
 import animation5 from "../images/animation5.gif";
 import cards_color from "../images/cards.png";
 import table_color from "../images/table_color.png";
+import Telegram from "../images/Telegram.png";
+import Discord from "../images/Discord.png";
+import Twitter from "../images/Twitter.png";
 
 import SearchIcon from "@mui/icons-material/Search";
 import FooterFunction from "../footer";
@@ -110,9 +113,10 @@ const tableData = [
 
 function Homepage({ callback }) {
   const navigate = useNavigate();
-  const theme = useTheme();
 
+  const theme = useTheme();
   const isSmScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMdScreen = useMediaQuery(theme.breakpoints.down("md"));
   const matches = useMediaQuery("(min-width:600px)");
 
   const [coinsData, setCoinsData] = useState([]);
@@ -255,119 +259,151 @@ function Homepage({ callback }) {
           Launch App
         </Button>
       </Paper>
-      <Grid
-        container
-        spacing={2}
-        sx={{
-          backgroundColor: "transparent",
-          maxWidth: "100%", // Set maximum width to ensure responsiveness
-          margin: "0 auto", // Center the container
-          direction: "row",
-          justifyContent: "space-between",
-          // paddingBottom: "50px",
-          padding: "0px 180px 50px 180px",
-        }}
-      >
+      {isSmScreen ? (
         <Grid
           item
-          xs={12}
-          sm={4}
-          md={4}
-          lg={4}
-          xl={4}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          style={{
-            width: "50%", // Set the default width
-            "@media (min-width:600px)": {
-              width: "100%", // Set the width to 30% for md and larger screen sizes
-            },
-          }}
+          sm={12}
+          md={8}
+          lg={8}
+          sx={{ margin: "50px auto", height: "50px" }}
         >
-          <img
-            src={animation1}
-            alt="logo"
-            style={{
-              width: "40%", // Set the default width
-              "@media (min-width:600px)": {
-                width: "80%", // Set the width to 60% for md and larger screen sizes
-              },
-              "@media (min-width:960px)": {
-                width: "50%", // Set the width to 10% for lg and larger screen sizes
-              },
-            }}
-          />
+          <Grid
+            container
+            sx={{ justifyContent: "center", alignItems: "center" }}
+          >
+            <Grid item sx={{ margin: "0px" }}>
+              <img
+                src={Twitter}
+                alt="Twitter"
+                style={{ height: "30px", width: "35px" }}
+              />
+            </Grid>
+            <Grid item sx={{ margin: "0px 30px" }}>
+              <img
+                src={Discord}
+                alt="Discord"
+                style={{ height: "30px", width: "35px" }}
+              />
+            </Grid>
+            <Grid item sx={{ margin: "0px" }}>
+              <img
+                src={Telegram}
+                alt="Telegram"
+                style={{ height: "30px", width: "35px" }}
+              />
+            </Grid>
+          </Grid>
         </Grid>
+      ) : (
         <Grid
-          item
-          xs={12}
-          sm={4}
-          md={4}
-          lg={4}
-          xl={4}
+          container
+          spacing={2}
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          style={{
-            width: "50%", // Set the default width
-            "@media (min-width:600px)": {
-              width: "100%", // Set the width to 30% for md and larger screen sizes
-            },
+            backgroundColor: "transparent",
+            maxWidth: "100%", // Set maximum width to ensure responsiveness
+            margin: "0 auto", // Center the container
+            direction: "row",
+            justifyContent: "space-between",
+            // paddingBottom: "50px",
+            padding: "0px 15% 50px 15%",
           }}
         >
-          <img
-            src={animation2}
-            alt="logo"
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            md={4}
+            lg={4}
+            xl={4}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: isMdScreen ? "100%" : "80%", // Set the default width
+            }}
+          >
+            <img
+              src={animation1}
+              alt="logo"
+              style={{
+                width: "40%", // Set the default width
+                "@media (min-width:600px)": {
+                  width: "80%", // Set the width to 60% for md and larger screen sizes
+                },
+                "@media (min-width:960px)": {
+                  width: "50%", // Set the width to 10% for lg and larger screen sizes
+                },
+              }}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            md={4}
+            lg={4}
+            xl={4}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
             style={{
-              width: "40%", // Set the default width
+              width: "50%", // Set the default width
               "@media (min-width:600px)": {
-                width: "80%", // Set the width to 60% for md and larger screen sizes
-              },
-              "@media (min-width:960px)": {
-                width: "50%", // Set the width to 10% for lg and larger screen sizes
+                width: "100%", // Set the width to 30% for md and larger screen sizes
               },
             }}
-          />
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={4}
-          md={4}
-          lg={4}
-          xl={4}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          style={{
-            width: "50%", // Set the default width
-            "@media (min-width:600px)": {
-              width: "100%", // Set the width to 30% for md and larger screen sizes
-            },
-          }}
-        >
-          <img
-            src={animation3}
-            alt="logo"
+          >
+            <img
+              src={animation2}
+              alt="logo"
+              style={{
+                width: "40%", // Set the default width
+                "@media (min-width:600px)": {
+                  width: "80%", // Set the width to 60% for md and larger screen sizes
+                },
+                "@media (min-width:960px)": {
+                  width: "50%", // Set the width to 10% for lg and larger screen sizes
+                },
+              }}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            md={4}
+            lg={4}
+            xl={4}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
             style={{
-              width: "40%", // Set the default width
+              width: "50%", // Set the default width
               "@media (min-width:600px)": {
-                width: "80%", // Set the width to 60% for md and larger screen sizes
-              },
-              "@media (min-width:960px)": {
-                width: "50%", // Set the width to 10% for lg and larger screen sizes
+                width: "100%", // Set the width to 30% for md and larger screen sizes
               },
             }}
-          />
+          >
+            <img
+              src={animation3}
+              alt="logo"
+              style={{
+                width: "40%", // Set the default width
+                "@media (min-width:600px)": {
+                  width: "80%", // Set the width to 60% for md and larger screen sizes
+                },
+                "@media (min-width:960px)": {
+                  width: "50%", // Set the width to 10% for lg and larger screen sizes
+                },
+              }}
+            />
+          </Grid>
         </Grid>
-      </Grid>
+      )}
 
       {/* -------------------------------------------------------------------------------------------------------- */}
 
@@ -415,7 +451,7 @@ function Homepage({ callback }) {
                 justifyContent: "center",
                 alignItems: isSmScreen ? "center" : "flex-end",
                 textAlign: isSmScreen ? "center" : "left",
-                padding: isSmScreen ? "20px" : "0px", // Add padding for better readability on small screens 
+                padding: isSmScreen ? "20px" : "0px", // Add padding for better readability on small screens
               }}
             >
               {/* <Typography
@@ -485,8 +521,9 @@ function Homepage({ callback }) {
                   backgroundColor: "#FFFFFF",
                   color: "#3D073F",
                   borderRadius: "20px",
+                  margin: " 15px auto 10px", // Center the button
                   display: "block",
-                  margin: " 15px 100px 10px", // Center the button
+                  // margin: "0 auto", // Center the button
                 }}
                 onClick={handleClick}
               >
@@ -685,9 +722,9 @@ function Homepage({ callback }) {
                   backgroundColor: "#FFFFFF",
                   color: "#3D073F",
                   borderRadius: "20px",
-                  // margin: " 15px auto 10px", // Center the button
+                  margin: " 15px auto 10px", // Center the button
                   display: "block",
-                  margin: " 15px 100px 10px", // Center the button
+                  // margin: "0 auto", // Center the button
                 }}
                 onClick={handleClick}
               >
@@ -717,7 +754,7 @@ function Homepage({ callback }) {
               Pools
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={12} md ={12} lg={12}>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
             <Container>
               <Typography
                 variant="h6"
@@ -731,12 +768,21 @@ function Homepage({ callback }) {
               >
                 Overview
               </Typography>
-              <Grid container sx={{display:"flex", justifyContent:"center", alignItems:"center"}} >
+              <Grid
+                container
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
                 <Grid item xs={10} lg={4}>
                   <Card
                     sx={{
-                      margin: "0px 50px 0px 50px",
-                      padding: "10px",
+                      margin: isMdScreen
+                        ? "0px 10px 0px 10px"
+                        : "0px 50px 0px 50px",
+                      // padding: "10px",
                       background: `url(${cards_color})`,
                       backgroundSize: "100% 100%",
                       display: "flex",
@@ -745,19 +791,19 @@ function Homepage({ callback }) {
                     }}
                   >
                     <CardContent
-                      sx={{ textAlign: "center", paddingTop: "10px" }}
+                      sx={{ textAlign: "center", paddingTop: "20px" }}
                     >
                       <Typography
                         variant="h6"
                         color="white"
                         sx={{
                           fontFamily: "Buenard",
-                          fontSize: "30px",
-                          paddingBottom: "0px",
-                          paddingTop: "5px",
+                          fontSize: isMdScreen ? "20px" : "30px",
+                          padding: "0px",
                         }}
                         gutterBottom
                       >
+                        $
                         {coinsData.length > 0
                           ? Number(coinsData[0].price).toFixed(3)
                           : 0}
@@ -768,8 +814,8 @@ function Homepage({ callback }) {
                         sx={{
                           fontFamily: "Poppins",
                           fontSize: "13px",
-                          padding: "0px",
                           margin: "0px",
+                          padding: "0px",
                         }}
                       >
                         Price
@@ -780,8 +826,10 @@ function Homepage({ callback }) {
                 <Grid item xs={10} lg={4}>
                   <Card
                     sx={{
-                      margin: "0px 50px 0px 50px",
-                      padding: "10px",
+                      margin: isMdScreen
+                        ? "0px 10px 0px 10px"
+                        : "0px 50px 0px 50px",
+                      // padding: "10px",
                       background: `url(${cards_color})`,
                       backgroundSize: "100% 100%",
                       display: "flex",
@@ -790,19 +838,19 @@ function Homepage({ callback }) {
                     }}
                   >
                     <CardContent
-                      sx={{ textAlign: "center", paddingTop: "10px" }}
+                      sx={{ textAlign: "center", paddingTop: "20px" }}
                     >
                       <Typography
                         variant="h6"
                         color="white"
                         sx={{
                           fontFamily: "Buenard",
-                          fontSize: "30px",
-                          paddingBottom: "0px",
-                          paddingTop: "5px",
+                          fontSize: isMdScreen ? "20px" : "30px",
+                          padding: "0px",
                         }}
                         gutterBottom
                       >
+                        $
                         {coinsData.length > 0
                           ? Number(coinsData[0].volume).toFixed(0)
                           : 0}
@@ -813,8 +861,8 @@ function Homepage({ callback }) {
                         sx={{
                           fontFamily: "Poppins",
                           fontSize: "13px",
-                          padding: "0px",
                           margin: "0px",
+                          padding: "0px",
                         }}
                       >
                         24h Volume
@@ -825,8 +873,10 @@ function Homepage({ callback }) {
                 <Grid item xs={10} lg={4}>
                   <Card
                     sx={{
-                      margin: "0px 50px 0px 50px",
-                      padding: "10px",
+                      margin: isMdScreen
+                        ? "0px 10px 0px 10px"
+                        : "0px 50px 0px 50px",
+                      // padding: "10px",
                       background: `url(${cards_color})`,
                       backgroundSize: "100% 100%",
                       display: "flex",
@@ -835,16 +885,15 @@ function Homepage({ callback }) {
                     }}
                   >
                     <CardContent
-                      sx={{ textAlign: "center", paddingTop: "10px" }}
+                      sx={{ textAlign: "center", paddingTop: "20px" }}
                     >
                       <Typography
                         variant="h6"
                         color="white"
                         sx={{
                           fontFamily: "Buenard",
-                          fontSize: "30px",
-                          paddingBottom: "0px",
-                          paddingTop: "5px",
+                          fontSize: isMdScreen ? "20px" : "30px",
+                          padding: "0px",
                         }}
                         gutterBottom
                       >
@@ -856,8 +905,8 @@ function Homepage({ callback }) {
                         sx={{
                           fontFamily: "Poppins",
                           fontSize: "13px",
-                          padding: "0px",
                           margin: "0px",
+                          padding: "0px",
                         }}
                       >
                         AI-B Prize
@@ -866,10 +915,7 @@ function Homepage({ callback }) {
                   </Card>
                 </Grid>
               </Grid>
-              <Grid
-                container
-                sx={{ marginTop: "30px", direction: "row" }}
-              >
+              <Grid container sx={{ marginTop: "30px", direction: "row" }}>
                 <Grid item xs={12} md={12} lg={2}>
                   <Typography
                     variant="h6"
@@ -923,11 +969,27 @@ function Homepage({ callback }) {
                 </Grid>
                 <Grid item xs={12} md={12} lg={12}>
                   <Container
-                    sx={{ height: "1px", background: "white", width:"100%", margin:"10px 0px" }}
+                    sx={{
+                      height: "1px",
+                      background: "white",
+                      width: "100%",
+                      margin: "10px 0px",
+                    }}
                   ></Container>
                 </Grid>
 
-                <Grid item xs={12} md={12} lg={12} sx={{display:"flex", alignItems:"center", justifyContent:"center", overflowX: "auto",}}>
+                <Grid
+                  item
+                  xs={12}
+                  md={12}
+                  lg={12}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    overflowX: "auto",
+                  }}
+                >
                   <Container
                     sx={{
                       width: "100%",
@@ -942,6 +1004,7 @@ function Homepage({ callback }) {
                               style={{
                                 fontFamily: "Poppins",
                                 width: "70%",
+                                fontSize: isMdScreen ? "10px" : "16px",
                                 color: "white",
                               }}
                             >
@@ -951,6 +1014,7 @@ function Homepage({ callback }) {
                               style={{
                                 fontFamily: "Poppins",
                                 color: "white",
+                                fontSize: isMdScreen ? "10px" : "16px",
                               }}
                             >
                               Price
@@ -959,6 +1023,7 @@ function Homepage({ callback }) {
                               style={{
                                 fontFamily: "Poppins",
                                 color: "white",
+                                fontSize: isMdScreen ? "10px" : "16px",
                               }}
                             >
                               Change
@@ -966,6 +1031,7 @@ function Homepage({ callback }) {
                             <TableCell
                               style={{
                                 fontFamily: "Poppins",
+                                fontSize: isMdScreen ? "10px" : "16px",
                                 color: "white",
                               }}
                             >
@@ -983,6 +1049,7 @@ function Homepage({ callback }) {
                                       index % 2 === 0
                                         ? table_color2
                                         : "transparent",
+                                    fontSize: isMdScreen ? "10px" : "16px",
                                     borderBottom: "none", // Remove bottom border
                                     border: "0px solid white",
                                   }}
@@ -991,6 +1058,7 @@ function Homepage({ callback }) {
                                     style={{
                                       fontFamily: "Poppins",
                                       color: "white",
+                                      fontSize: isMdScreen ? "10px" : "16px",
                                     }}
                                   >
                                     {row.name}
@@ -999,6 +1067,7 @@ function Homepage({ callback }) {
                                     style={{
                                       fontFamily: "Poppins",
                                       color: "white",
+                                      fontSize: isMdScreen ? "10px" : "16px",
                                     }}
                                   >
                                     {row.price
@@ -1009,6 +1078,7 @@ function Homepage({ callback }) {
                                     style={{
                                       fontFamily: "Poppins",
                                       color: "white",
+                                      fontSize: isMdScreen ? "10px" : "16px",
                                     }}
                                   >
                                     {row.change}
@@ -1017,6 +1087,7 @@ function Homepage({ callback }) {
                                     style={{
                                       fontFamily: "Poppins",
                                       color: "white",
+                                      fontSize: isMdScreen ? "10px" : "16px",
                                     }}
                                   >
                                     {row.volume}

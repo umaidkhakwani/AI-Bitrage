@@ -218,12 +218,12 @@ function Main() {
         {isMdScreen ? (
           <Box
             sx={{
-              width: "70%",
+              width: "90%",
               height: "150px",
               // background: "white",
               zIndex: "5",
               position: "absolute",
-              left: "15%",
+              left: "5%",
               display: "flex",
               alignItems: "center",
               flexWrap: "nowrap",

@@ -38,6 +38,8 @@ function Header_Function() {
   const navigate = useNavigate();
   const theme = useTheme();
   const isSmScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMdScreen = useMediaQuery(theme.breakpoints.down("md"));
+
   const matches = useMediaQuery("(min-width:600px)");
 
   const [value, setValue] = useState(-1);
@@ -124,7 +126,7 @@ function Header_Function() {
                 aria-label="scrollable auto tabs example"
                 sx={{
                   backgroundColor: "transparent", // Set tabs background to transparent
-                  width: "50%", // Adjust the width here
+                  width: isSmScreen ? "90%" : (isMdScreen ? "70%" : "50%"), // Adjust the width here
                   '& .MuiTabs-scrollButtons': {
                     // Customize the color of the scroll buttons here
                     color: 'white', // Replace with your desired color
@@ -157,6 +159,7 @@ function Header_Function() {
                   backgroundColor: "#FFFFFF",
                   color: "#3D073F",
                   borderRadius: "20px",
+                  marginTop: isSmScreen ? 2 : 0,
                 }}
                 onClick={handleClick}
               >
