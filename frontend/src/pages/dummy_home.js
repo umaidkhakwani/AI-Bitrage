@@ -19,17 +19,10 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 function Pool_function() {
   const theme = useTheme();
-  const isXSmScreen = useMediaQuery(theme.breakpoints.down("xs"));
   const isSmScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isMdScreen = useMediaQuery(theme.breakpoints.down("md"));
   const matches = useMediaQuery("(min-width:900px)");
   const laptopSize = useMediaQuery("(min-width:1025px)");
-  const isTabletScreen = useMediaQuery("(max-width: 1024px)");
-
-  const isLaptopScreen = useMediaQuery(theme.breakpoints.up("lg"));
-
-  const circleSize = isLaptopScreen ? 300 : isMdScreen ? 300 : 300;
-  const innerCircleSize = circleSize * 0.92;
 
   return (
     <Box
@@ -82,7 +75,6 @@ function Pool_function() {
           alignItems: "center",
         }}
       >
-        {/* ----------------------------------------- POOL A ----------------------------------------- */}
         <Grid
           container
           sx={{
@@ -100,20 +92,12 @@ function Pool_function() {
             lg={4}
             sx={{ width: "100%", height: "100" }}
           >
-            <div
-              style={{
-                textAlign: "center",
-                display: isMdScreen ? "flex" : null,
-                justifyContent: isMdScreen ? "center" : null,
-                alignItems: isMdScreen ? "center" : null,
-              }}
-            >
+            <div style={{ textAlign: "center" }}>
               {/* outer Circle */}
               <div
                 style={{
-                  width: isLaptopScreen ? 300 : isMdScreen ? 300 : 300,
-                  height: isXSmScreen ? 20 : 300,
-                  // height: `${circleSize}px`,
+                  width: "94%",
+                  height: "300px",
                   borderRadius: "50%",
                   backgroundColor: "#5b144d",
                   position: "relative",
@@ -122,8 +106,8 @@ function Pool_function() {
                 {/* inner Circle */}
                 <div
                   style={{
-                    width: `${innerCircleSize}px`,
-                    height: `${innerCircleSize}px`,
+                    width: "92%",
+                    height: "280px",
                     borderRadius: "50%",
                     backgroundColor: "#862071",
                     position: "absolute",
@@ -142,15 +126,9 @@ function Pool_function() {
                     style={{
                       fontFamily: "Poppins",
                       color: "white",
-                      fontSize: isTabletScreen
-                        ? "28px"
-                        : isLaptopScreen
-                        ? "30px"
-                        : isMdScreen
-                        ? "28px"
-                        : "28px",
+                      fontSize:laptopSize ? "20px" : (matches ? "28px" : "40px"),
                       textDecoration: "underline",
-                      width: isLaptopScreen ? "50%" : "70%",
+                      width: laptopSize ? "50%" :"70%",
                       textAlign: "center",
                     }}
                   >
@@ -161,7 +139,7 @@ function Pool_function() {
                     variant="body2"
                     style={{
                       fontFamily: "Poppins",
-                      fontSize: isMdScreen ? "14px" : "18px",
+                      fontSize: isMdScreen ? "12px" : "18px",
                       color: "white",
                       width: "80%",
                       textAlign: "center",
@@ -173,7 +151,7 @@ function Pool_function() {
                     variant="body2"
                     style={{
                       fontFamily: "Poppins",
-                      fontSize: isMdScreen ? "10px" : "10px",
+                      fontSize: isMdScreen ? "8px" : "10px",
                       color: "white",
                       width: "80%",
                       textAlign: "center",
@@ -190,7 +168,7 @@ function Pool_function() {
             </div>
           </Grid>
 
-          {isLaptopScreen ? (
+          {!isMdScreen ? (
             <Grid
               item
               xs={8}
@@ -238,9 +216,6 @@ function Pool_function() {
             </Grid>
           ) : null}
         </Grid>
-
-        {/* ----------------------------------------- POOL B ----------------------------------------- */}
-
         <Grid
           container
           sx={{
@@ -250,7 +225,7 @@ function Pool_function() {
             alignItems: "center",
           }}
         >
-          {isLaptopScreen ? (
+          {!isMdScreen ? (
             <Grid
               item
               xs={8}
@@ -278,8 +253,7 @@ function Pool_function() {
                 <br />
                 Investors with a substantial amount of Ethereum can directly
                 stake their assets into Pool B via the secure AI BITRAGE
-                dashboard, with advanced analytics and reporting tools
-                available.
+                dashboard, with advanced analytics and reporting tools available
               </Typography>
               <Typography
                 variant="body2"
@@ -300,31 +274,22 @@ function Pool_function() {
             </Grid>
           ) : null}
           <Grid item xs={12} sm={8} md={4} lg={4}>
-            <div
-              style={{
-                textAlign: "center",
-                display: isMdScreen ? "flex" : null,
-                justifyContent: isMdScreen ? "center" : null,
-                alignItems: isMdScreen ? "center" : null,
-              }}
-            >
+            <div style={{ textAlign: "center", marginLeft: "20px" }}>
               {/* outer Circle */}
               <div
                 style={{
-                  width: isLaptopScreen ? 300 : isMdScreen ? 300 : 300,
-                  height: isXSmScreen ? 20 : 300,
-                  // height: `${circleSize}px`,
+                  width: "94%",
+                  height: "300px",
                   borderRadius: "50%",
                   backgroundColor: "#5b144d",
                   position: "relative",
-                  marginLeft: isLaptopScreen ? "10px" : "0px",
                 }}
               >
                 {/* inner Circle */}
                 <div
                   style={{
-                    width: `${innerCircleSize}px`,
-                    height: `${innerCircleSize}px`,
+                    width: "92%",
+                    height: "280px",
                     borderRadius: "50%",
                     backgroundColor: "#862071",
                     position: "absolute",
@@ -343,15 +308,9 @@ function Pool_function() {
                     style={{
                       fontFamily: "Poppins",
                       color: "white",
-                      fontSize: isTabletScreen
-                        ? "28px"
-                        : isLaptopScreen
-                        ? "30px"
-                        : isMdScreen
-                        ? "28px"
-                        : "28px",
+                      fontSize: matches ? "28px" : "40px",
                       textDecoration: "underline",
-                      width: isLaptopScreen ? "50%" : "70%",
+                      width: "80%",
                       textAlign: "center",
                     }}
                   >
@@ -362,7 +321,7 @@ function Pool_function() {
                     variant="body2"
                     style={{
                       fontFamily: "Poppins",
-                      fontSize: isMdScreen ? "14px" : "18px",
+                      fontSize: isMdScreen ? "12px" : "18px",
                       color: "white",
                       width: "80%",
                       textAlign: "center",
@@ -374,7 +333,7 @@ function Pool_function() {
                     variant="body2"
                     style={{
                       fontFamily: "Poppins",
-                      fontSize: isMdScreen ? "10px" : "10px",
+                      fontSize: "10px",
                       color: "white",
                       width: "80%",
                       textAlign: "center",
@@ -390,9 +349,6 @@ function Pool_function() {
             </div>
           </Grid>
         </Grid>
-
-        {/* ----------------------------------------- POOL C ----------------------------------------- */}
-
         <Grid
           container
           sx={{
@@ -403,20 +359,12 @@ function Pool_function() {
           }}
         >
           <Grid item xs={12} sm={8} md={4} lg={4}>
-            <div
-              style={{
-                textAlign: "center",
-                display: isMdScreen ? "flex" : null,
-                justifyContent: isMdScreen ? "center" : null,
-                alignItems: isMdScreen ? "center" : null,
-              }}
-            >
+            <div style={{ textAlign: "center" }}>
               {/* outer Circle */}
               <div
                 style={{
-                  width: isLaptopScreen ? 300 : isMdScreen ? 300 : 300,
-                  height: isXSmScreen ? 20 : 300,
-                  // height: `${circleSize}px`,
+                  width: "94%",
+                  height: "300px",
                   borderRadius: "50%",
                   backgroundColor: "#5b144d",
                   position: "relative",
@@ -425,8 +373,8 @@ function Pool_function() {
                 {/* inner Circle */}
                 <div
                   style={{
-                    width: `${innerCircleSize}px`,
-                    height: `${innerCircleSize}px`,
+                    width: "92%",
+                    height: "280px",
                     borderRadius: "50%",
                     backgroundColor: "#862071",
                     position: "absolute",
@@ -445,15 +393,9 @@ function Pool_function() {
                     style={{
                       fontFamily: "Poppins",
                       color: "white",
-                      fontSize: isTabletScreen
-                        ? "28px"
-                        : isLaptopScreen
-                        ? "30px"
-                        : isMdScreen
-                        ? "28px"
-                        : "28px",
+                      fontSize: matches ? "28px" : "40px",
                       textDecoration: "underline",
-                      width: isLaptopScreen ? "50%" : "70%",
+                      width: "80%",
                       textAlign: "center",
                     }}
                   >
@@ -464,7 +406,7 @@ function Pool_function() {
                     variant="body2"
                     style={{
                       fontFamily: "Poppins",
-                      fontSize: isMdScreen ? "14px" : "18px",
+                      fontSize: isMdScreen ? "12px" : "18px",
                       color: "white",
                       width: "80%",
                       textAlign: "center",
@@ -476,7 +418,7 @@ function Pool_function() {
                     variant="body2"
                     style={{
                       fontFamily: "Poppins",
-                      fontSize: isMdScreen ? "10px" : "10px",
+                      fontSize: "10px",
                       color: "white",
                       width: "80%",
                       textAlign: "center",
@@ -492,7 +434,7 @@ function Pool_function() {
             </div>
           </Grid>
 
-          {isLaptopScreen ? (
+          {!isMdScreen ? (
             <Grid
               item
               xs={8}
@@ -513,7 +455,6 @@ function Pool_function() {
                   color: "white",
                   fontFamily: "Poppins",
                   fontSize: "15px",
-                  textAlign: "left",
                 }}
               >
                 Investment Process:
@@ -530,7 +471,6 @@ function Pool_function() {
                   fontFamily: "Poppins",
                   fontSize: "15px",
                   marginTop: "20px",
-                  textAlign: "left",
                 }}
               >
                 Returns:
@@ -542,9 +482,6 @@ function Pool_function() {
             </Grid>
           ) : null}
         </Grid>
-
-        {/* ----------------------------------------- POOL D ----------------------------------------- */}
-
         <Grid
           container
           sx={{
@@ -554,7 +491,7 @@ function Pool_function() {
             alignItems: "center",
           }}
         >
-          {isLaptopScreen ? (
+          {!isMdScreen ? (
             <Grid
               item
               xs={8}
@@ -578,10 +515,10 @@ function Pool_function() {
                   textAlign: "right",
                 }}
               >
-                Investment Process:
-                <br />A dedicated account manager is assigned to investors in
-                this pool, ensuring personalized service. Investments and
-                withdrawals are streamlined for efficiency and convenience.
+                Investment Process: <br />A dedicated account manager is
+                assigned to investors in this pool, ensuring personalized
+                service. Investments and withdrawals are streamlined for
+                efficiency and convenience.
               </Typography>
               <Typography
                 variant="body2"
@@ -593,8 +530,7 @@ function Pool_function() {
                   textAlign: "right",
                 }}
               >
-                Returns:
-                <br />
+                Returns: <br />
                 ROI is dynamic, with the potential for substantial gains due to
                 aggressive strategies employed. Regular updates and reports are
                 provided to keep investors informed of their asset performance.
@@ -602,32 +538,22 @@ function Pool_function() {
             </Grid>
           ) : null}
           <Grid item xs={12} sm={8} md={4} lg={4}>
-            <div
-              style={{
-                textAlign: "center",
-                display: isMdScreen ? "flex" : null,
-                justifyContent: isMdScreen ? "center" : null,
-                alignItems: isMdScreen ? "center" : null,
-              }}
-            >
+            <div style={{ textAlign: "center", marginLeft: "20px" }}>
               {/* outer Circle */}
               <div
                 style={{
-                  width: isLaptopScreen ? 300 : isMdScreen ? 300 : 300,
-                  height: isXSmScreen ? 20 : 300,
-                  // height: `${circleSize}px`,
+                  width: "94%",
+                  height: "300px",
                   borderRadius: "50%",
                   backgroundColor: "#5b144d",
                   position: "relative",
-                  marginLeft: isLaptopScreen ? "10px" : "0px",
-
                 }}
               >
                 {/* inner Circle */}
                 <div
                   style={{
-                    width: `${innerCircleSize}px`,
-                    height: `${innerCircleSize}px`,
+                    width: "92%",
+                    height: "280px",
                     borderRadius: "50%",
                     backgroundColor: "#862071",
                     position: "absolute",
@@ -646,15 +572,9 @@ function Pool_function() {
                     style={{
                       fontFamily: "Poppins",
                       color: "white",
-                      fontSize: isTabletScreen
-                        ? "28px"
-                        : isLaptopScreen
-                        ? "30px"
-                        : isMdScreen
-                        ? "28px"
-                        : "28px",
+                      fontSize: matches ? "28px" : "40px",
                       textDecoration: "underline",
-                      width: isLaptopScreen ? "50%" : "70%",
+                      width: "80%",
                       textAlign: "center",
                     }}
                   >
@@ -665,7 +585,7 @@ function Pool_function() {
                     variant="body2"
                     style={{
                       fontFamily: "Poppins",
-                      fontSize: isMdScreen ? "14px" : "18px",
+                      fontSize: isMdScreen ? "12px" : "18px",
                       color: "white",
                       width: "80%",
                       textAlign: "center",
@@ -677,7 +597,7 @@ function Pool_function() {
                     variant="body2"
                     style={{
                       fontFamily: "Poppins",
-                      fontSize: isMdScreen ? "10px" : "10px",
+                      fontSize: "10px",
                       color: "white",
                       width: "80%",
                       textAlign: "center",
@@ -693,8 +613,6 @@ function Pool_function() {
             </div>
           </Grid>
         </Grid>
-
-        {/* ------------------------------------------------------------------------------------------ */}
       </Container>
       <Container sx={{ marginBottom: "100px" }}>
         <Typography

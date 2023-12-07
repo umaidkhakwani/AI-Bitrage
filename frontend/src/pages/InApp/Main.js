@@ -48,7 +48,9 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 function Main() {
   const theme = useTheme();
   const isSmScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isXSmScreen = useMediaQuery(theme.breakpoints.down("xs"));
   const isMdScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const isLgScreen = useMediaQuery(theme.breakpoints.down("lg"));
   const matches = useMediaQuery("(min-width:600px)");
 
   const navigate = useNavigate();
@@ -88,129 +90,129 @@ function Main() {
       >
         {/* ----------------------------------------------  Side Option ------------------------------------------------------- */}
         {!isMdScreen ? (
-        <Grid
-          container
-          direction="column"
-          style={{
-            width: "6%",
-            height: "96%",
-            position: "fixed",
-            left: "0px",
-            top: "23px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            alignContent: "center",
-            flexWrap: "nowrap",
-            background: `url(${sidebar})`,
+          <Grid
+            container
+            direction="column"
+            style={{
+              width: "6%",
+              height: "96%",
+              position: "fixed",
+              left: "0px",
+              top: "23px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              alignContent: "center",
+              flexWrap: "nowrap",
+              background: `url(${sidebar})`,
 
-            zIndex: 100,
-            borderRadius: "7px",
-            left: "100px",
-            top: "23px",
-          }}
-        >
-          <Grid item md={2}>
-            <Box
-              sx={{
-                padding: 0,
-                marginTop: "5px",
-                width: "100%",
-                height: "100%",
-                alignItems: "flex-start",
-                justifyContent: "center",
-                display: "flex",
-              }}
-            >
-              <Tooltip title="Homepage" placement="bottom-end">
-                <img
-                  src={logo_top}
-                  alt="logo"
-                  width="90%"
-                  height="60%"
-                  style={{ margin: "0px", cursor: "pointer" }}
-                  onClick={handleClick_Home}
-                />
-              </Tooltip>
-            </Box>
-          </Grid>
-          <Grid item md={7}>
-            <Box
-              sx={{
-                // background: "white",
-                color: "white",
-                width: "100%",
-                height: "100%",
-                alignItems: "center",
-                justifyContent: "center",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <Tooltip title="Bridge" placement="bottom-end">
-                <img
-                  src={Bridge}
-                  alt="Documentation Image"
-                  style={{
-                    width: "80%",
-                    height: "70px",
-                    cursor: "pointer",
-                    margin: "20px 10px",
-                  }}
-                  onClick={() => setpageOption("bridge")}
-                />
-              </Tooltip>
-              <Tooltip title="Pool" placement="bottom-end">
-                <img
-                  src={Pool}
-                  alt="Documentation Image"
-                  style={{
-                    width: "80%",
-                    height: "70px",
-                    cursor: "pointer",
-                    margin: "20px 10px",
-                  }}
-                  onClick={() => setpageOption("pool")}
-                />
-              </Tooltip>
+              zIndex: 100,
+              borderRadius: "7px",
+              left: "100px",
+              top: "23px",
+            }}
+          >
+            <Grid item md={2}>
+              <Box
+                sx={{
+                  padding: 0,
+                  marginTop: "5px",
+                  width: "100%",
+                  height: "100%",
+                  alignItems: "flex-start",
+                  justifyContent: "center",
+                  display: "flex",
+                }}
+              >
+                <Tooltip title="Homepage" placement="bottom-end">
+                  <img
+                    src={logo_top}
+                    alt="logo"
+                    width="90%"
+                    height="60%"
+                    style={{ margin: "0px", cursor: "pointer" }}
+                    onClick={handleClick_Home}
+                  />
+                </Tooltip>
+              </Box>
+            </Grid>
+            <Grid item md={7}>
+              <Box
+                sx={{
+                  // background: "white",
+                  color: "white",
+                  width: "100%",
+                  height: "100%",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Tooltip title="Bridge" placement="bottom-end">
+                  <img
+                    src={Bridge}
+                    alt="Documentation Image"
+                    style={{
+                      width: "80%",
+                      height: "70px",
+                      cursor: "pointer",
+                      margin: "20px 10px",
+                    }}
+                    onClick={() => setpageOption("bridge")}
+                  />
+                </Tooltip>
+                <Tooltip title="Pool" placement="bottom-end">
+                  <img
+                    src={Pool}
+                    alt="Documentation Image"
+                    style={{
+                      width: "80%",
+                      height: "70px",
+                      cursor: "pointer",
+                      margin: "20px 10px",
+                    }}
+                    onClick={() => setpageOption("pool")}
+                  />
+                </Tooltip>
 
-              <Tooltip title="Swap" placement="bottom-end">
-                <img
-                  src={Swap}
-                  alt="Documentation Image"
-                  style={{
-                    width: "80%",
-                    height: "70px",
-                    cursor: "pointer",
-                    margin: "20px 10px",
-                  }}
-                  onClick={() => setpageOption("swap")}
-                />
-              </Tooltip>
-            </Box>
+                <Tooltip title="Swap" placement="bottom-end">
+                  <img
+                    src={Swap}
+                    alt="Documentation Image"
+                    style={{
+                      width: "80%",
+                      height: "70px",
+                      cursor: "pointer",
+                      margin: "20px 10px",
+                    }}
+                    onClick={() => setpageOption("swap")}
+                  />
+                </Tooltip>
+              </Box>
+            </Grid>
+            <Grid item md={3}>
+              <Container
+                sx={{
+                  // background: "black",
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <Tooltip title="Home" placement="bottom">
+                  <ReplyIcon
+                    style={{
+                      color: `#ffffff9c`,
+                      fontSize: "36px",
+                      cursor: "pointer",
+                    }}
+                    onClick={handleClick_Home}
+                  />
+                </Tooltip>
+              </Container>
+            </Grid>
           </Grid>
-          <Grid item md={3}>
-            <Container
-              sx={{
-                // background: "black",
-                width: "100%",
-                height: "100%",
-              }}
-            >
-              <Tooltip title="Home" placement="bottom">
-                <ReplyIcon
-                  style={{
-                    color: `#ffffff9c`,
-                    fontSize: "36px",
-                    cursor: "pointer",
-                  }}
-                  onClick={handleClick_Home}
-                />
-              </Tooltip>
-            </Container>
-          </Grid>
-        </Grid>
         ) : null}
 
         {/* Header for medium and small screens */}
@@ -218,17 +220,19 @@ function Main() {
         {isMdScreen ? (
           <Box
             sx={{
-              width: "90%",
-              height: "150px",
-              // background: "white",
+              width: "100%",
+              height: isSmScreen ?"130px ":"85px", // Adjusted height
               zIndex: "5",
               position: "absolute",
-              left: "5%",
+              // left: "5%",
               display: "flex",
               alignItems: "center",
               flexWrap: "nowrap",
               flexDirection: isSmScreen ? "column" : "row",
               justifyContent: "center",
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              backdropFilter: "blur(8px)",
+              borderRadius: "10px", // Added border radius for rounded corners
             }}
           >
             <img
@@ -246,7 +250,7 @@ function Main() {
               aria-label="scrollable auto tabs example"
               sx={{
                 backgroundColor: "transparent", // Set tabs background to transparent
-                width: "50%", // Adjust the width here
+                width: isXSmScreen ? "80%" : "45%", // Adjust the width here
                 "& .MuiTabs-scrollButtons": {
                   // Customize the color of the scroll buttons here
                   color: "white", // Replace with your desired color
@@ -255,12 +259,12 @@ function Main() {
             >
               <Tab
                 label="Swap"
-                sx={{ color: "white"}}
+                sx={{ color: "white" }}
                 onClick={() => setpageOption("swap")}
               />
               <Tab
                 label="Pool"
-                sx={{ color: "white"}}
+                sx={{ color: "white" }}
                 onClick={() => setpageOption("pool")}
               />
               <Tab
@@ -271,7 +275,7 @@ function Main() {
             </Tabs>
           </Box>
         ) : null}
-        
+
         {/* ------------------------------------------------------------------------------------------------------------------- */}
         <Paper
           sx={{

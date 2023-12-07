@@ -61,11 +61,7 @@ function FooterFunction_home({ callback2 }) {
           sx={{ margin: "0px auto", height: "auto" }}
         >
           <Grid container sx={{ direction: "row", height: "100%" }}>
-            <Grid
-              item
-              sm={6}
-              md={6}
-              lg={3}
+            <Grid item xs={6} sm={6} md={6} lg={3}
               sx={{
                 margin: "0px auto 20px auto",
                 display: "column",
@@ -137,11 +133,7 @@ function FooterFunction_home({ callback2 }) {
                 <br />
               </Typography>
             </Grid>
-            <Grid
-              item
-              sm={6}
-              md={6}
-              lg={3}
+            <Grid item xs={6} sm={6} md={6} lg={3}
               sx={{
                 margin: "0px auto 20px auto",
                 display: "column",
@@ -183,11 +175,7 @@ function FooterFunction_home({ callback2 }) {
                 Governance
               </Typography>
             </Grid>
-            <Grid
-              item
-              sm={6}
-              md={6}
-              lg={3}
+            <Grid item xs={6} sm={6} md={6} lg={3}
               sx={{
                 margin: "0px auto 20px auto",
                 display: "column",
@@ -244,11 +232,7 @@ function FooterFunction_home({ callback2 }) {
                 <br />
               </Typography>
             </Grid>
-            <Grid
-              item
-              sm={6}
-              md={6}
-              lg={3}
+            <Grid item xs={6} sm={6} md={6} lg={3}
               sx={{
                 margin: "0px auto 20px auto",
                 display: "column",

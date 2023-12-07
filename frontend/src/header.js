@@ -89,6 +89,7 @@ function Header_Function() {
             backgroundSize: "cover",
             overflowY: "auto",
             margin: 0,
+            backgroundPosition:"center",
             padding: 0,
             willChange: "transform", // Add will-change property
           }}

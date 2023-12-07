@@ -259,7 +259,7 @@ function Homepage({ callback }) {
           Launch App
         </Button>
       </Paper>
-      {isSmScreen ? (
+      {/* {isSmScreen ? (
         <Grid
           item
           sm={12}
@@ -294,116 +294,89 @@ function Homepage({ callback }) {
             </Grid>
           </Grid>
         </Grid>
-      ) : (
+      ) : ( */}
+      <Grid
+        container
+        spacing={0}
+        sx={{
+          backgroundColor: "transparent",
+          maxWidth: "100%", // Set maximum width to ensure responsiveness
+          height: isSmScreen ? "23%" : isMdScreen ? "25%" : "38%",
+          margin: "0 auto", // Center the container
+          direction: "row",
+          justifyContent: "space-between",
+          // paddingBottom: "50px",
+          // padding: "0px 15% 50px 15%",
+          padding: isSmScreen
+            ? "0px 5% 50px 5%"
+            : isMdScreen
+            ? "0px 10% 50px 10%"
+            : "0px 15% 50px 15%",
+        }}
+      >
         <Grid
-          container
-          spacing={2}
+          item
+          xs={4}
+          sm={4}
+          md={4}
+          lg={4}
+          xl={4}
           sx={{
-            backgroundColor: "transparent",
-            maxWidth: "100%", // Set maximum width to ensure responsiveness
-            margin: "0 auto", // Center the container
-            direction: "row",
-            justifyContent: "space-between",
-            // paddingBottom: "50px",
-            padding: "0px 15% 50px 15%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: isMdScreen ? "100%" : "80%", // Set the default width
+            // background: "black",
           }}
         >
-          <Grid
-            item
-            xs={12}
-            sm={4}
-            md={4}
-            lg={4}
-            xl={4}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: isMdScreen ? "100%" : "80%", // Set the default width
-            }}
-          >
-            <img
-              src={animation1}
-              alt="logo"
-              style={{
-                width: "40%", // Set the default width
-                "@media (min-width:600px)": {
-                  width: "80%", // Set the width to 60% for md and larger screen sizes
-                },
-                "@media (min-width:960px)": {
-                  width: "50%", // Set the width to 10% for lg and larger screen sizes
-                },
-              }}
-            />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={4}
-            md={4}
-            lg={4}
-            xl={4}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            style={{
-              width: "50%", // Set the default width
-              "@media (min-width:600px)": {
-                width: "100%", // Set the width to 30% for md and larger screen sizes
-              },
-            }}
-          >
-            <img
-              src={animation2}
-              alt="logo"
-              style={{
-                width: "40%", // Set the default width
-                "@media (min-width:600px)": {
-                  width: "80%", // Set the width to 60% for md and larger screen sizes
-                },
-                "@media (min-width:960px)": {
-                  width: "50%", // Set the width to 10% for lg and larger screen sizes
-                },
-              }}
-            />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={4}
-            md={4}
-            lg={4}
-            xl={4}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            style={{
-              width: "50%", // Set the default width
-              "@media (min-width:600px)": {
-                width: "100%", // Set the width to 30% for md and larger screen sizes
-              },
-            }}
-          >
-            <img
-              src={animation3}
-              alt="logo"
-              style={{
-                width: "40%", // Set the default width
-                "@media (min-width:600px)": {
-                  width: "80%", // Set the width to 60% for md and larger screen sizes
-                },
-                "@media (min-width:960px)": {
-                  width: "50%", // Set the width to 10% for lg and larger screen sizes
-                },
-              }}
-            />
-          </Grid>
+          <img
+            src={animation1}
+            alt="logo"
+            style={{ width: isSmScreen ? "80%" : (isMdScreen ? "50%" :"40%")}}
+          />
         </Grid>
-      )}
+        <Grid
+          item
+          xs={4}
+          sm={4}
+          md={4}
+          lg={4}
+          xl={4}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            // background: "white",
+            alignItems: "center",
+          }}
+        >
+         <img
+            src={animation2}
+            alt="logo"
+            style={{ width: isSmScreen ? "80%" : (isMdScreen ? "50%" :"40%")}}
+          />
+        </Grid>
+        <Grid
+          item
+          xs={4}
+          sm={4}
+          md={4}
+          lg={4}
+          xl={4}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            // background: "black",
+          }}
+        >
+           <img
+            src={animation3}
+            alt="logo"
+            style={{ width: isSmScreen ? "80%" : (isMdScreen ? "50%" :"40%")}}
+          />
+        </Grid>
+      </Grid>
+      {/* )} */}
 
       {/* -------------------------------------------------------------------------------------------------------- */}
 
@@ -1070,6 +1043,7 @@ function Homepage({ callback }) {
                                       fontSize: isMdScreen ? "10px" : "16px",
                                     }}
                                   >
+                                    $
                                     {row.price
                                       ? Number(row.price).toFixed(6)
                                       : "N/A"}
@@ -1081,7 +1055,7 @@ function Homepage({ callback }) {
                                       fontSize: isMdScreen ? "10px" : "16px",
                                     }}
                                   >
-                                    {row.change}
+                                    {row.change}%
                                   </TableCell>
                                   <TableCell
                                     style={{
@@ -1090,7 +1064,7 @@ function Homepage({ callback }) {
                                       fontSize: isMdScreen ? "10px" : "16px",
                                     }}
                                   >
-                                    {row.volume}
+                                    ${row.volume}
                                   </TableCell>
                                 </TableRow>
                               ))
