@@ -221,7 +221,7 @@ function Swap_function() {
                 onClose={handleProfileClose}
                 PaperProps={{
                   sx: {
-                    backgroundColor: "rgba(139, 91, 255, 0.3)", // Background color with opacity
+                    backgroundColor: "rgba(139, 91, 255, 0.9)", // Background color with opacity
                     borderRadius: "10px",
                     minWidth: "170px",
                     marginTop: "5px",
@@ -276,7 +276,8 @@ function Swap_function() {
                               style={{
                                 fontFamily: "Poppins",
                                 fontSize: "11px",
-                                color: "#9E9D9D",
+                                color: "black",
+                                // color: "#9E9D9D",
                                 margin: "0px 0px 0px 3px",
                               }}
                             >
@@ -473,7 +474,7 @@ function Swap_function() {
                 onClose={handleProfileClose2}
                 PaperProps={{
                   sx: {
-                    backgroundColor: "rgba(139, 91, 255, 0.3)", // Background color with opacity
+                    backgroundColor: "rgba(139, 91, 255, 0.9)", // Background color with opacity
                     borderRadius: "10px",
                     minWidth: "170px",
                     marginTop: "5px",
@@ -529,7 +530,8 @@ function Swap_function() {
                                 fontFamily: "Poppins",
                                 fontSize: "11px",
                                 margin: "0px 0px 0px 3px",
-                                color: "#9E9D9D",
+                                color: "black",
+                                // color: "#9E9D9D",
                               }}
                             >
                               ${menuItem.value.toFixed(2)}

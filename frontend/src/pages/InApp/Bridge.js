@@ -287,7 +287,7 @@ function Bridge_function() {
                 onClose={handleProfileClose2}
                 PaperProps={{
                   sx: {
-                    backgroundColor: "rgba(139, 91, 255, 0.3)", // Background color with opacity
+                    backgroundColor: "rgba(139, 91, 255, 0.9)", // Background color with opacity
                     borderRadius: "10px",
                     minWidth: "170px",
                     marginTop: "5px",
@@ -343,7 +343,8 @@ function Bridge_function() {
                                 fontFamily: "Poppins",
                                 fontSize: "11px",
                                 margin: "0px 0px 0px 3px",
-                                color: "#9E9D9D",
+                                color: "black",
+                                // color: "#9E9D9D",
                               }}
                             >
                               ${menuItem.value.toFixed(2)}
