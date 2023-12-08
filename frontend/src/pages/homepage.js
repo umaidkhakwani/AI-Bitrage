@@ -117,6 +117,7 @@ function Homepage({ callback }) {
   const theme = useTheme();
   const isSmScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isMdScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const isLgScreen = useMediaQuery(theme.breakpoints.down("lg"));
   const matches = useMediaQuery("(min-width:600px)");
 
   const [coinsData, setCoinsData] = useState([]);
@@ -406,10 +407,11 @@ function Homepage({ callback }) {
               src={home2}
               alt="logo"
               style={{
-                width: "-webkit-fill-available",
-                height: "100%",
+                // width: "-webkit-fill-available",
+                width:!isLgScreen? "100%" : (isMdScreen ? "100%" : "80%") ,
+                height: !isLgScreen? "100%" : (isMdScreen ? "100%" : "80%") ,
                 marginTop: "0%",
-                marginLeft: "-60%",
+                marginLeft: "-40%",
               }} // Adjust width and height as needed
             />
           </Grid>
@@ -625,6 +627,7 @@ function Homepage({ callback }) {
         {/* How AI-BITRAGE will work? */}
 
         <Grid container spacing={0} sx={{ margin: "0px", direction: "row" }}>
+         {!isMdScreen ? (
           <Grid
             item
             xs={12} // For extra-small screens
@@ -639,6 +642,7 @@ function Homepage({ callback }) {
               style={{ margin: "0px", width: "100%" }}
             />
           </Grid>
+          ) : (null)}
           <Grid
             item
             xs={12} // For extra-small screens
@@ -663,7 +667,7 @@ function Homepage({ callback }) {
                 sx={{
                   textAlign: "center",
                   color: "white",
-                  margin: isSmScreen ? "20px" : "10px 90px 10px 10px",
+                  margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
                   fontFamily: "Maragsa",
                   fontSize: 40,
                 }}
@@ -705,6 +709,22 @@ function Homepage({ callback }) {
               </Button>
             </Paper>
           </Grid>
+          {isMdScreen ? (
+          <Grid
+            item
+            xs={12} // For extra-small screens
+            sm={12} // For small screens
+            md={6} // For medium screens
+            lg={6} // For large screens
+            xl={6}
+          >
+            <img
+              src={animation5}
+              alt="logo"
+              style={{ margin: "0px", width: "100%" }}
+            />
+          </Grid>
+          ): (null)}
         </Grid>
 
         {/* Pools */}
@@ -724,7 +744,7 @@ function Homepage({ callback }) {
                 fontSize: 40,
               }}
             >
-              Pools
+              Market Data
             </Typography>
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12}>
@@ -900,11 +920,11 @@ function Homepage({ callback }) {
                       fontSize: 25,
                     }}
                   >
-                    Pools
+                    Market Data
                   </Typography>
                 </Grid>
                 <Grid item xs={12} md={12} lg={6}></Grid>
-                <Grid item xs={12} md={12} lg={4}>
+                {/* <Grid item xs={12} md={12} lg={4}>
                   <Container
                     sx={{
                       width: "80%",
@@ -939,7 +959,7 @@ function Homepage({ callback }) {
                       }}
                     />
                   </Container>
-                </Grid>
+                </Grid> */}
                 <Grid item xs={12} md={12} lg={12}>
                   <Container
                     sx={{
@@ -990,7 +1010,7 @@ function Homepage({ callback }) {
                                 fontSize: isMdScreen ? "10px" : "16px",
                               }}
                             >
-                              Price
+                              Price ($)
                             </TableCell>
                             <TableCell
                               style={{
@@ -999,7 +1019,7 @@ function Homepage({ callback }) {
                                 fontSize: isMdScreen ? "10px" : "16px",
                               }}
                             >
-                              Change
+                              Change (%)
                             </TableCell>
                             <TableCell
                               style={{
@@ -1008,7 +1028,7 @@ function Homepage({ callback }) {
                                 color: "white",
                               }}
                             >
-                              24h Volume
+                              24h Volume ($)
                             </TableCell>
                           </TableRow>
                         </TableHead>
