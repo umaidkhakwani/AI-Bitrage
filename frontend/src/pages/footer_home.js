@@ -109,7 +109,7 @@ function FooterFunction_home({ callback2 }) {
                   lineHeight: "1.2",
                   cursor: "pointer",
                   textAlign: "center",
-                  textDecoration: "underline",
+                  // textDecoration: "underline",
                 }}
                 onClick={() => handleclick(10)}
               >
@@ -125,7 +125,7 @@ function FooterFunction_home({ callback2 }) {
                   lineHeight: "1.2",
                   cursor: "pointer",
                   textAlign: "center",
-                  textDecoration: "underline",
+                  // textDecoration: "underline",
                 }}
                 onClick={() => handleclick(11)}
               >
@@ -142,7 +142,7 @@ function FooterFunction_home({ callback2 }) {
                   lineHeight: "1.2",
                   cursor: "pointer",
                   textAlign: "center",
-                  textDecoration: "underline",
+                  // textDecoration: "underline",
                 }}
                 onClick={() => handleclick(12)}
               >
@@ -219,7 +219,7 @@ function FooterFunction_home({ callback2 }) {
 
                   color: "white",
                   lineHeight: "1.2",
-                  textDecoration: "underline",
+                  // textDecoration: "underline",
                   textAlign: "center",
                   cursor: "pointer",
                 }}
@@ -236,7 +236,7 @@ function FooterFunction_home({ callback2 }) {
 
                   color: "white",
                   lineHeight: "1.2",
-                  textDecoration: "underline",
+                  // textDecoration: "underline",
                   textAlign: "center",
                   cursor: "pointer",
                 }}

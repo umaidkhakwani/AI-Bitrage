@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import {
@@ -41,6 +41,8 @@ import new_bg3 from "../images/new_bg3.png";
 import new2 from "../images/new2.jpg";
 import new3 from "../images/new3.png";
 import new_bg1 from "../images/new_bg1.png";
+import background1 from "../images/background_new.png";
+import vid1 from "../images/vid1.mp4";
 
 import SearchIcon from "@mui/icons-material/Search";
 import FooterFunction from "../footer";
@@ -53,8 +55,7 @@ import axios from "axios";
 
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 const AcrylicContainer = styled(Container)`
   position: relative;
@@ -69,13 +70,17 @@ const GlowingEffectContainer = styled(Grid)`
   position: relative;
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 40vh; /* Adjust the height as needed */
-    background: linear-gradient(to top, rgba(80, 168, 131, 0.5), rgba(80, 168, 131, 0));
+    background: linear-gradient(
+      to top,
+      rgba(80, 168, 131, 0.5),
+      rgba(80, 168, 131, 0)
+    );
     z-index: 1;
   }
 `;
@@ -156,6 +161,16 @@ function Homepage({ callback }) {
   const [coinsData, setCoinsData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  // const videoRef = useRef(null);
+
+  // useEffect(() => {
+  //   // Auto-play the video when the component mounts
+  //   videoRef.current.play().catch((error) => {
+  //     // Handle autoplay restrictions, e.g., on mobile devices
+  //     console.error('Autoplay error:', error);
+  //   });
+  // }, [])
+
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -209,98 +224,143 @@ function Homepage({ callback }) {
       <CssBaseline />
 
       {/* --------------------------------------  Front Page  ------------------------------------------ */}
-
       <Paper
         sx={{
-          backgroundColor: "transparent",
-          width: "50%", // Default width
-          margin: "0 auto", // Center the paper
-          padding: 2, // Add padding for better visibility
-          boxShadow: 0,
-          "@media (max-width: 600px)": {
-            width: "90%", // Set the width to 90% for xs screen size
-          },
-          "@media (min-width: 600px) and (max-width: 960px)": {
-            width: "90%", // Set the width to 90% for sm screen size
-          },
-          "@media (min-width: 960px) and (max-width: 1280px)": {
-            width: "90%", // Set the width to 90% for md screen size
-          },
+          width: "100%",
+          // height: "100vh",
+          backgroundImage: `url(${ background1})`,
+          backgroundSize: "cover",
+          // overflowY: "auto",
+          margin: 0,
+          backgroundPosition: "center",
+          padding: 0,
+          willChange: "transform", // Add will-change property
         }}
       >
-        <Typography
-          variant="h6"
+   {/* <Paper
+      sx={{
+        width: '100%',
+        height: '100vh',
+        overflow: 'hidden',
+        margin: 0,
+        padding: 0,
+        position: 'relative',
+      }}
+    >
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        controls={false}
+        disablePictureInPicture
+        style={{
+          objectFit: 'cover',
+          width: '100%', // Set the width to 100% of the parent container
+          height: '100%', // Set the height to 100% of the parent container
+          position: 'absolute',
+          top: 0,
+          left: 0,
+        }}
+      >
+        <source src={vid1} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video> */}
+        <Paper
           sx={{
-            textAlign: "center",
-            color: "#50A883",
-            // color: `linear-gradient(to right, #5F2C81, white )`,
-            marginTop: 2,
-            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.9)",
-            fontFamily: "Aclonica",
-            fontSize: 40,
-            // background: "linear-gradient(to right,  #ffff, #5F2C81)",
-            // WebkitBackgroundClip: "text",
-            // color: "transparent",
-            // display: 'inline-block',
+            
+            backgroundColor: "transparent",
+            width: "40%", // Default width
+            margin: "0 auto", // Center the paper
+            padding: "200px 20px 20px 20px", // Add padding for better visibility
+            // padding: 2, // Add padding for better visibility
+            boxShadow: 0,
+            "@media (max-width: 600px)": {
+              width: "90%", // Set the width to 90% for xs screen size
+            },
+            "@media (min-width: 600px) and (max-width: 960px)": {
+              width: "90%", // Set the width to 90% for sm screen size
+            },
+            "@media (min-width: 960px) and (max-width: 1280px)": {
+              width: "90%", // Set the width to 90% for md screen size
+            },
           }}
         >
-          <strong>AI-BITRAGE</strong>
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            textAlign: "center",
-            color: "white",
-            marginTop: 2,
-            fontFamily: "Lora",
-            fontSize: 20,
-          }}
-        >
-          <span>
+          <Typography
+            variant="h6"
+            sx={{
+              textAlign: "center",
+              color: "#50A883",
+              // color: `linear-gradient(to right, #5F2C81, white )`,
+              marginTop: 2,
+              // textShadow: "2px 2px 4px rgba(0, 0, 0, 0.9)",
+              fontFamily: "Aclonica",
+              fontSize: 40,
+              // background: "linear-gradient(to right,  #ffff, #5F2C81)",
+              // WebkitBackgroundClip: "text",
+              // color: "transparent",
+              // display: 'inline-block',
+            }}
+          >
             <strong>AI-BITRAGE</strong>
-          </span>{" "}
-          is a new launchpad being built for the crypto space. AI-BITRAGE has a
-          vision of bringing guaranteed profits to all users across the space.
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            textAlign: "center",
-            color: "white",
-            marginTop: 2,
-            fontFamily: "Lora",
-            fontSize: 24,
-          }}
-        >
-          The software is revolutionary and the development team has cultivated
-          an algorithm, capable of evaluating{" "}
-          <span>
-            <strong>Ethereum</strong>
-          </span>{" "}
-          tokens across the{" "}
-          <span>
-            <strong>blockchain</strong>
-          </span>
-          .
-        </Typography>
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              textAlign: "center",
+              color: "white",
+              marginTop: 2,
+              fontFamily: "Lora",
+              fontSize: 20,
+            }}
+          >
+            <span>
+              <strong>AI-BITRAGE</strong>
+            </span>{" "}
+            is a new launchpad being built for the crypto space. AI-BITRAGE has
+            a vision of bringing guaranteed profits to all users across the
+            space.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              textAlign: "center",
+              color: "white",
+              marginTop: 2,
+              fontFamily: "Lora",
+              fontSize: 24,
+            }}
+          >
+            The software is revolutionary and the development team has
+            cultivated an algorithm, capable of evaluating{" "}
+            <span>
+              <strong>Ethereum</strong>
+            </span>{" "}
+            tokens across the{" "}
+            <span>
+              <strong>blockchain</strong>
+            </span>
+            .
+          </Typography>
 
-        <Button
-          variant="contained"
-          sx={{
-            backgroundColor: "#50A883",
-            color: "#ffff",
-            borderRadius: "20px",
-            margin: " 15px auto 10px", // Center the button
-            display: "block",
-            fontFamily:"Rakkas"
-            // margin: "0 auto", // Center the button
-          }}
-          onClick={handleClick}
-        >
-          Launch App
-        </Button>
-      </Paper>
-      {/* {isSmScreen ? (
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#50A883",
+              color: "#ffff",
+              borderRadius: "20px",
+              margin: " 50px auto 50px", // Center the button
+              display: "block",
+              fontFamily: "Rakkas",
+              // margin: "0 auto", // Center the button
+            }}
+            onClick={handleClick}
+          >
+            Launch App
+          </Button>
+        </Paper>
+        {/* {isSmScreen ? (
         <Grid
           item
           sm={12}
@@ -336,87 +396,89 @@ function Homepage({ callback }) {
           </Grid>
         </Grid>
       ) : ( */}
-      <Grid
-        container
-        spacing={0}
-        sx={{
-          backgroundColor: "transparent",
-          maxWidth: "100%", // Set maximum width to ensure responsiveness
-          height: isSmScreen ? "23%" : isMdScreen ? "25%" : "38%",
-          margin: "0 auto", // Center the container
-          direction: "row",
-          justifyContent: "space-between",
-          // paddingBottom: "50px",
-          // padding: "0px 15% 50px 15%",
-          padding: isSmScreen
-            ? "0px 5% 50px 5%"
-            : isMdScreen
-            ? "0px 10% 50px 10%"
-            : "0px 15% 50px 15%",
-        }}
-      >
         <Grid
-          item
-          xs={4}
-          sm={4}
-          md={4}
-          lg={4}
-          xl={4}
+          container
+          spacing={0}
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: isMdScreen ? "100%" : "80%", // Set the default width
-            // background: "black",
+            backgroundColor: "transparent",
+            maxWidth: "100%", // Set maximum width to ensure responsiveness
+            height: isSmScreen ? "23%" : isMdScreen ? "25%" : "48%",
+            margin: "0 auto", // Center the container
+            direction: "row",
+            justifyContent: "space-between",
+            // paddingBottom: "50px",
+            // padding: "0px 15% 50px 15%",
+            padding: isSmScreen
+              ? "0px 5% 50px 5%"
+              : isMdScreen
+              ? "0px 10% 50px 10%"
+              : "0px 15% 50px 15%",
           }}
         >
-          <img
-            src={animation1}
-            alt="logo"
-            style={{ width: isSmScreen ? "80%" : isMdScreen ? "50%" : "40%" }}
-          />
+          <Grid
+            item
+            xs={4}
+            sm={4}
+            md={4}
+            lg={4}
+            xl={4}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: isMdScreen ? "100%" : "80%", // Set the default width
+              // background: "black",
+            }}
+          >
+            <img
+              src={animation1}
+              alt="logo"
+              style={{ width: isSmScreen ? "80%" : isMdScreen ? "50%" : "40%" }}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={4}
+            sm={4}
+            md={4}
+            lg={4}
+            xl={4}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              // background: "white",
+              alignItems: "center",
+            }}
+          >
+            <img
+              src={animation2}
+              alt="logo"
+              style={{ width: isSmScreen ? "80%" : isMdScreen ? "50%" : "40%" }}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={4}
+            sm={4}
+            md={4}
+            lg={4}
+            xl={4}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              // background: "black",
+            }}
+          >
+            <img
+              src={animation3}
+              alt="logo"
+              style={{ width: isSmScreen ? "80%" : isMdScreen ? "50%" : "40%" }}
+            />
+          </Grid>
         </Grid>
-        <Grid
-          item
-          xs={4}
-          sm={4}
-          md={4}
-          lg={4}
-          xl={4}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            // background: "white",
-            alignItems: "center",
-          }}
-        >
-          <img
-            src={animation2}
-            alt="logo"
-            style={{ width: isSmScreen ? "80%" : isMdScreen ? "50%" : "40%" }}
-          />
-        </Grid>
-        <Grid
-          item
-          xs={4}
-          sm={4}
-          md={4}
-          lg={4}
-          xl={4}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            // background: "black",
-          }}
-        >
-          <img
-            src={animation3}
-            alt="logo"
-            style={{ width: isSmScreen ? "80%" : isMdScreen ? "50%" : "40%" }}
-          />
-        </Grid>
-      </Grid>
+      </Paper>
+
       {/* )} */}
 
       {/* -------------------------------------------------------------------------------------------------------- */}
@@ -435,7 +497,7 @@ function Homepage({ callback }) {
         }}
       >
         {/* What is AI-BITRAGE? */}
-        <Grid container sx={{ margin: "200px 0px", direction: "row" }}>
+        <Grid container sx={{ margin: "0px 0px", direction: "row" , padding: isLgScreen ? "0px 0px 30px 0px" : "0px"}}>
           <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
             <Paper
               sx={{
@@ -448,7 +510,9 @@ function Homepage({ callback }) {
                 justifyContent: "center",
                 alignItems: isSmScreen ? "center" : "center",
                 textAlign: isSmScreen ? "center" : "center",
-                padding: isSmScreen ? "120px 20px 20px 20px" : "120px 0px 0px 0px", // Add padding for better readability on small screens
+                padding: isSmScreen
+                  ? "120px 20px 20px 20px"
+                  : "120px 0px 0px 0px", // Add padding for better readability on small screens
               }}
             >
               {/* <Typography
@@ -465,13 +529,13 @@ function Homepage({ callback }) {
                   33{isSmScreen.toString()}33{matches.toString()}33
                 </strong>
               </Typography> */}
-
+              <Container sx={{ width: isSmScreen ? "100%" : "65%" }}>
               <Typography
                 variant="h6"
                 sx={{
-                  textAlign: "start",
+                  textAlign: isLgScreen ? "center" : "start",
                   color: "#50A883",
-                  margin: isSmScreen ? "10px" : "10px 10px 10px 10px",
+                  // margin: isSmScreen ? "10px" : "10px 10px 10px 10px",
                   fontFamily: "Aclonica",
                   fontSize: 40,
                 }}
@@ -482,7 +546,7 @@ function Homepage({ callback }) {
                 variant="body1"
                 sx={{
                   textAlign: isLgScreen ? "center" : "start",
-                  margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
+                  // margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
                   color: "white",
                   fontFamily: "Lora",
                   fontSize: 20,
@@ -503,6 +567,7 @@ function Homepage({ callback }) {
                 cultivated an algorithm, capable of evaluating Ethereum tokens
                 across the blockchain.
               </Typography>
+              </Container>
               {/* <Typography
                 variant="body1"
                 sx={{
@@ -522,57 +587,26 @@ function Homepage({ callback }) {
           </Grid>
           <Grid
             item
-            xs={10} // For extra-small screens
-            sm={10} // For small screens
+            xs={12} // For extra-small screens
+            sm={12} // For small screens
             md={12} // For medium screens
             lg={6} // For large screens
             xl={6}
+            sx={{display:"flex", justifyContent:"center", alignItems:"center"}}
           >
             <img
               src={new1}
               alt="logo"
               style={{
                 // width: "-webkit-fill-available",
-                width: !isLgScreen ? "100%" : isMdScreen ? "100%" : "80%",
-                height: !isLgScreen ? "100%" : isMdScreen ? "100%" : "80%",
+                width: !isLgScreen ? "80%" : isMdScreen ? "80%" : "80%",
+                height: !isLgScreen ? "80%" : isMdScreen ? "80%" : "80%",
                 marginTop: "0%",
                 // marginLeft: "-40%",
               }} // Adjust width and height as needed
             />
           </Grid>
         </Grid>
-
-          {/* Video  */}
-          <Container
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100vh",
-            }}
-          >
-            <Grid container>
-              <Grid
-                item
-                xs={12} // For extra-small screens
-                sm={12} // For small screens
-                md={12} // For medium screens
-                lg={12} // For large screens
-                xl={12} // For extra-large screens
-              >
-                <video width="100%" height="100%" controls>
-                  <source
-                    src="/path/to/your/local/video.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </Grid>
-            </Grid>
-          </Container>
-
-        {/* Core Features  */}
-
         <Paper
           sx={{
             backgroundColor: "transparent",
@@ -587,11 +621,59 @@ function Homepage({ callback }) {
             // padding: isSmScreen ? "20px" : "0px", // Add padding for better readability on small screens
           }}
         >
+        {/* Video  */}
+        <Container
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+            padding:"100px 0px 0px 0px",
+          }}
+        >
+          <Grid container>
+            <Grid
+              item
+              xs={12} // For extra-small screens
+              sm={12} // For small screens
+              md={12} // For medium screens
+              lg={12} // For large screens
+              xl={12} // For extra-large screens
+            >
+              <video width="80%" height="80%" controls>
+                <source src="/path/to/your/local/video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </Grid>
+          </Grid>
+        </Container>
+        </Paper>
+
+        {/* Core Features  */}
+
+
           <Grid
             container
             spacing={0}
             sx={{ margin: "100px 0px", direction: "row" }}
           >
+            {!isMdScreen ? (
+             <Grid
+              item
+              xs={12} // For extra-small screens
+              sm={12} // For small screens
+              md={6} // For medium screens
+              lg={6} // For large screens
+              xl={6}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
+              <img
+                src={new2}
+                alt="animation"
+                style={{ margin: "0px", width: "70%" }}
+              />
+            </Grid>
+            ):(null)}
             <Grid
               item
               xs={12} // For extra-small screens
@@ -603,7 +685,7 @@ function Homepage({ callback }) {
               <Paper
                 sx={{
                   backgroundColor: "transparent",
-                  width: isSmScreen ? "90%" : "80%",
+                  width: isSmScreen ? "100%" : "100%",
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
@@ -615,15 +697,16 @@ function Homepage({ callback }) {
                 <Container
                   width="100%"
                   sx={{
-                    display: "column",
+                    display: "flex",
                     justifyContent: "center",
-                    alignItems: isSmScreen ? "center" : "flex-end",
+                    flexDirection: "column",
+                    alignItems: isSmScreen ? "center" : "center",
                   }}
                 >
                   <Typography
                     variant="h6"
                     sx={{
-                      textAlign: isSmScreen ? "center" : "start",
+                      textAlign: isMdScreen ? "center" : "end",
                       color: "#50A883",
                       // color: "white",
                       margin: "10px 20px 10px 20px",
@@ -639,7 +722,7 @@ function Homepage({ callback }) {
                   <Typography
                     variant="body1"
                     sx={{
-                      textAlign: isSmScreen ? "center" : "start",
+                      textAlign: isMdScreen ? "center" : "end",
                       margin: "10px 20px 10px 20px",
                       color: "white",
                       fontFamily: "Lora",
@@ -657,6 +740,7 @@ function Homepage({ callback }) {
                 </Container>
               </Paper>
             </Grid>
+            {isMdScreen ? (
             <Grid
               item
               xs={12} // For extra-small screens
@@ -672,99 +756,15 @@ function Homepage({ callback }) {
                 style={{ margin: "0px", width: "70%" }}
               />
             </Grid>
+            ):(null)}
+           
           </Grid>
-        </Paper>
 
         {/* How AI-BITRAGE will work? */}
         <GlowingEffectContainer>
-        <Grid container spacing={0} sx={{ margin: "0px", direction: "row" }}>
+          <Grid container spacing={0} sx={{ margin: "0px", direction: "row" }}>
           
-          {!isMdScreen ? (
-            <Grid
-              item
-              xs={12} // For extra-small screens
-              sm={12} // For small screens
-              md={6} // For medium screens
-              lg={6} // For large screens
-              xl={6}
-            >
-              <img
-                src={new3}
-                alt="logo"
-                style={{ position:"relative", right:"15%", margin: "0px", width: "100%" }}
-              />
-            </Grid>
-          ) : null}
           <Grid
-            item
-            xs={12} // For extra-small screens
-            sm={12} // For small screens
-            md={6} // For medium screens
-            lg={6} // For large screens
-            xl={6}
-          >
-            <Paper
-              sx={{
-                backgroundColor: "transparent",
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center", // Align content at the end
-                alignItems: isSmScreen ? "center" : "flex-end", // Center the content horizontally
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  textAlign: "center",
-                  color: "#50A883",
-                  // color: "white",
-                  margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
-                  fontFamily: "Aclonica",
-                  fontSize: 40,
-                }}
-              >
-                <strong> How AI-BITRAGE will work? </strong>
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  textAlign: isLgScreen ? "center" : "end",
-                  margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
-                  color: "white",
-                  fontFamily: "Lora",
-                  fontSize: 20,
-                }}
-              >
-                The IDO is made for users to stake an amount of Ethereum, on
-                each pool of their choice. Each pool will only allow a certain
-                amount of users per month to stake Ethereum. E.G. each pool will
-                allow a max of 250 users per month (31 days). When the month is
-                over, users funds and profits will be unlocked from the pool’s
-                and will be accessible for withdrawals back into the users
-                wallets. The pool’s have been created to operate on a “first
-                come ,first serve” basis.
-              </Typography>
-              <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: "#50A883",
-                  color: "#ffff",
-                  borderRadius: "20px",
-                  margin: " 15px auto 10px", // Center the button
-                  display: "block",
-                  fontFamily:"Maragsa",
-                  // margin: "0 auto", // Center the button
-                }}
-                onClick={handleClick}
-              >
-                Launch App
-              </Button>
-            </Paper>
-          </Grid>
-          {isMdScreen ? (
-            <Grid
               item
               xs={12} // For extra-small screens
               sm={12} // For small screens
@@ -772,15 +772,93 @@ function Homepage({ callback }) {
               lg={6} // For large screens
               xl={6}
             >
-              <img
-                src={new3}
-                alt="logo"
-                style={{ position:"relative", right:"15%", margin: "0px", width: "100%" }}
-              />
+              <Paper
+                sx={{
+                  backgroundColor: "transparent",
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start", // Align content at the end
+                  alignItems: isSmScreen ? "center" : "flex-start", // Center the content horizontally
+                }}
+              >
+                <Container sx={{display:"flex", flexDirection:"column", alignItems:isMdScreen ? "center":"flex-start", justifyContent:isMdScreen ? "center":"flex-start"}}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    textAlign: isLgScreen ? "center" : "start",
+                    color: "#50A883",
+                    // color: "white",
+                    margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
+                    fontFamily: "Aclonica",
+                    fontSize: 40,
+                  }}
+                >
+                  <strong> How AI-BITRAGE will work? </strong>
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    textAlign: isLgScreen ? "center" : "start",
+                    margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
+                    color: "white",
+                    fontFamily: "Lora",
+                    fontSize: 20,
+                  }}
+                >
+                  The IDO is made for users to stake an amount of Ethereum, on
+                  each pool of their choice. Each pool will only allow a certain
+                  amount of users per month to stake Ethereum. E.G. each pool
+                  will allow a max of 250 users per month (31 days). When the
+                  month is over, users funds and profits will be unlocked from
+                  the pool’s and will be accessible for withdrawals back into
+                  the users wallets. The pool’s have been created to operate on
+                  a “first come ,first serve” basis.
+                </Typography>
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#50A883",
+                    color: "#ffff",
+                    borderRadius: "20px",
+                    margin: isMdScreen ? "35px 0px" : "35px 100px", // Center the button/
+                    display: "block",
+                    fontFamily: "Maragsa",
+                    // margin: "0 auto", // Center the button
+                  }}
+                  onClick={handleClick}
+                >
+                  Launch App
+                </Button>
+                </Container>
+              </Paper>
             </Grid>
-          ) : null}
-
-        </Grid>
+            
+            {/* {!isMdScreen ? ( */}
+              <Grid
+                item
+                xs={12} // For extra-small screens
+                sm={12} // For small screens
+                md={6} // For medium screens
+                lg={6} // For large screens
+                xl={6}
+              >
+                <img
+                  src={new3}
+                  alt="logo"
+                  style={{
+                    position: "relative",
+                    right: "15%",
+                    margin: "0px",
+                    width: "100%",
+                  }}
+                />
+              </Grid>
+            {/* ) : null} */}
+            
+            
+          </Grid>
         </GlowingEffectContainer>
 
         {/* Pools */}
@@ -839,182 +917,182 @@ function Homepage({ callback }) {
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <Container>
               <AcrylicContainer>
-              <Typography
-                variant="h6"
-                sx={{
-                  textAlign: "flex-start",
-                  color: "white",
-                  margin: "10px 50px 10px 10px",
-                  fontFamily: "Maragsa",
-                  fontSize: 25,
-                }}
-              >
-                Overview
-              </Typography>
-              <Grid
-                container
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Grid item xs={10} lg={4}>
-                  <Card
-                    sx={{
-                      margin: isMdScreen
-                        ? "0px 10px 0px 10px"
-                        : "0px 50px 0px 50px",
-                      // padding: "10px",
-                      background: `url(${cards_color})`,
-                      backgroundSize: "100% 100%",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <CardContent
-                      sx={{ textAlign: "center", paddingTop: "20px" }}
+                <Typography
+                  variant="h6"
+                  sx={{
+                    textAlign: "flex-start",
+                    color: "white",
+                    margin: "10px 50px 10px 10px",
+                    fontFamily: "Maragsa",
+                    fontSize: 25,
+                  }}
+                >
+                  Overview
+                </Typography>
+                <Grid
+                  container
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Grid item xs={10} lg={4}>
+                    <Card
+                      sx={{
+                        margin: isMdScreen
+                          ? "0px 10px 0px 10px"
+                          : "0px 50px 0px 50px",
+                        // padding: "10px",
+                        background: `url(${cards_color})`,
+                        backgroundSize: "100% 100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
                     >
-                      <Typography
-                        variant="h6"
-                        color="white"
-                        sx={{
-                          fontFamily: "Buenard",
-                          fontSize: isMdScreen ? "20px" : "30px",
-                          padding: "0px",
-                        }}
-                        gutterBottom
+                      <CardContent
+                        sx={{ textAlign: "center", paddingTop: "20px" }}
                       >
-                        $
-                        {coinsData.length > 0
-                          ? Number(coinsData[0].price).toFixed(3)
-                          : 0}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="white"
-                        sx={{
-                          fontFamily: "Poppins",
-                          fontSize: "13px",
-                          margin: "0px",
-                          padding: "0px",
-                        }}
-                      >
-                        Price
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-                <Grid item xs={10} lg={4}>
-                  <Card
-                    sx={{
-                      margin: isMdScreen
-                        ? "0px 10px 0px 10px"
-                        : "0px 50px 0px 50px",
-                      // padding: "10px",
-                      background: `url(${cards_color})`,
-                      backgroundSize: "100% 100%",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <CardContent
-                      sx={{ textAlign: "center", paddingTop: "20px" }}
+                        <Typography
+                          variant="h6"
+                          color="white"
+                          sx={{
+                            fontFamily: "Buenard",
+                            fontSize: isMdScreen ? "20px" : "30px",
+                            padding: "0px",
+                          }}
+                          gutterBottom
+                        >
+                          $
+                          {coinsData.length > 0
+                            ? Number(coinsData[0].price).toFixed(3)
+                            : 0}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="white"
+                          sx={{
+                            fontFamily: "Poppins",
+                            fontSize: "13px",
+                            margin: "0px",
+                            padding: "0px",
+                          }}
+                        >
+                          Price
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                  <Grid item xs={10} lg={4}>
+                    <Card
+                      sx={{
+                        margin: isMdScreen
+                          ? "0px 10px 0px 10px"
+                          : "0px 50px 0px 50px",
+                        // padding: "10px",
+                        background: `url(${cards_color})`,
+                        backgroundSize: "100% 100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
                     >
-                      <Typography
-                        variant="h6"
-                        color="white"
-                        sx={{
-                          fontFamily: "Buenard",
-                          fontSize: isMdScreen ? "20px" : "30px",
-                          padding: "0px",
-                        }}
-                        gutterBottom
+                      <CardContent
+                        sx={{ textAlign: "center", paddingTop: "20px" }}
                       >
-                        $
-                        {coinsData.length > 0
-                          ? Number(coinsData[0].volume).toFixed(0)
-                          : 0}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="white"
-                        sx={{
-                          fontFamily: "Poppins",
-                          fontSize: "13px",
-                          margin: "0px",
-                          padding: "0px",
-                        }}
-                      >
-                        24h Volume
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-                <Grid item xs={10} lg={4}>
-                  <Card
-                    sx={{
-                      margin: isMdScreen
-                        ? "0px 10px 0px 10px"
-                        : "0px 50px 0px 50px",
-                      // padding: "10px",
-                      background: `url(${cards_color})`,
-                      backgroundSize: "100% 100%",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <CardContent
-                      sx={{ textAlign: "center", paddingTop: "20px" }}
+                        <Typography
+                          variant="h6"
+                          color="white"
+                          sx={{
+                            fontFamily: "Buenard",
+                            fontSize: isMdScreen ? "20px" : "30px",
+                            padding: "0px",
+                          }}
+                          gutterBottom
+                        >
+                          $
+                          {coinsData.length > 0
+                            ? Number(coinsData[0].volume).toFixed(0)
+                            : 0}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="white"
+                          sx={{
+                            fontFamily: "Poppins",
+                            fontSize: "13px",
+                            margin: "0px",
+                            padding: "0px",
+                          }}
+                        >
+                          24h Volume
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                  <Grid item xs={10} lg={4}>
+                    <Card
+                      sx={{
+                        margin: isMdScreen
+                          ? "0px 10px 0px 10px"
+                          : "0px 50px 0px 50px",
+                        // padding: "10px",
+                        background: `url(${cards_color})`,
+                        backgroundSize: "100% 100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
                     >
-                      <Typography
-                        variant="h6"
-                        color="white"
-                        sx={{
-                          fontFamily: "Buenard",
-                          fontSize: isMdScreen ? "20px" : "30px",
-                          padding: "0px",
-                        }}
-                        gutterBottom
+                      <CardContent
+                        sx={{ textAlign: "center", paddingTop: "20px" }}
                       >
-                        $0.99
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="white"
-                        sx={{
-                          fontFamily: "Poppins",
-                          fontSize: "13px",
-                          margin: "0px",
-                          padding: "0px",
-                        }}
-                      >
-                        AI-B Prize
-                      </Typography>
-                    </CardContent>
-                  </Card>
+                        <Typography
+                          variant="h6"
+                          color="white"
+                          sx={{
+                            fontFamily: "Buenard",
+                            fontSize: isMdScreen ? "20px" : "30px",
+                            padding: "0px",
+                          }}
+                          gutterBottom
+                        >
+                          $0.99
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="white"
+                          sx={{
+                            fontFamily: "Poppins",
+                            fontSize: "13px",
+                            margin: "0px",
+                            padding: "0px",
+                          }}
+                        >
+                          AI-B Prize
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
                 </Grid>
-              </Grid>
-              <Grid container sx={{ marginTop: "30px", direction: "row" }}>
-                <Grid item xs={12} md={12} lg={3}>
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      textAlign: "flex-start",
-                      color: "white",
-                      margin: "10px 50px 10px 10px",
-                      fontFamily: "Maragsa",
-                      fontSize: 25,
-                    }}
-                  >
-                    Market Data
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} md={12} lg={5}></Grid>
-                {/* <Grid item xs={12} md={12} lg={4}>
+                <Grid container sx={{ marginTop: "30px", direction: "row" }}>
+                  <Grid item xs={12} md={12} lg={3}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        textAlign: "flex-start",
+                        color: "white",
+                        margin: "10px 50px 10px 10px",
+                        fontFamily: "Maragsa",
+                        fontSize: 25,
+                      }}
+                    >
+                      Market Data
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} md={12} lg={5}></Grid>
+                  {/* <Grid item xs={12} md={12} lg={4}>
                   <Container
                     sx={{
                       width: "80%",
@@ -1050,142 +1128,142 @@ function Homepage({ callback }) {
                     />
                   </Container>
                 </Grid> */}
-                <Grid item xs={12} md={12} lg={12}>
-                  <Container
-                    sx={{
-                      height: "1px",
-                      background: "white",
-                      width: "100%",
-                      margin: "10px 0px",
-                    }}
-                  ></Container>
-                </Grid>
+                  <Grid item xs={12} md={12} lg={12}>
+                    <Container
+                      sx={{
+                        height: "1px",
+                        background: "white",
+                        width: "100%",
+                        margin: "10px 0px",
+                      }}
+                    ></Container>
+                  </Grid>
 
-                <Grid
-                  item
-                  xs={12}
-                  md={12}
-                  lg={12}
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    overflowX: "auto",
-                  }}
-                >
-                  <Container
+                  <Grid
+                    item
+                    xs={12}
+                    md={12}
+                    lg={12}
                     sx={{
-                      width: "100%",
-                      height: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      overflowX: "auto",
                     }}
                   >
-                    <TableContainer>
-                      <Table>
-                        <TableHead>
-                          <TableRow>
-                            <TableCell
-                              style={{
-                                fontFamily: "Poppins",
-                                width: "70%",
-                                fontSize: isMdScreen ? "10px" : "16px",
-                                color: "white",
-                              }}
-                            >
-                              Pool
-                            </TableCell>
-                            <TableCell
-                              style={{
-                                fontFamily: "Poppins",
-                                color: "white",
-                                fontSize: isMdScreen ? "10px" : "16px",
-                              }}
-                            >
-                              Price ($)
-                            </TableCell>
-                            <TableCell
-                              style={{
-                                fontFamily: "Poppins",
-                                color: "white",
-                                fontSize: isMdScreen ? "10px" : "16px",
-                              }}
-                            >
-                              Change (%)
-                            </TableCell>
-                            <TableCell
-                              style={{
-                                fontFamily: "Poppins",
-                                fontSize: isMdScreen ? "10px" : "16px",
-                                color: "white",
-                              }}
-                            >
-                              24h Volume ($)
-                            </TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableBody>
-                          {coinsData.length > 0
-                            ? filteredData.slice(0, 10).map((row, index) => (
-                                <TableRow
-                                  key={index}
-                                  sx={{
-                                    background:
-                                      index % 2 === 0
-                                        // ? table_color2
-                                        ?`rgba(80, 168, 131, 0.5)`
-                                        : "transparent",
-                                    fontSize: isMdScreen ? "10px" : "16px",
-                                    borderBottom: "none", // Remove bottom border
-                                    border: "0px solid white",
-                                  }}
-                                >
-                                  <TableCell
-                                    style={{
-                                      fontFamily: "Poppins",
-                                      color: "white",
+                    <Container
+                      sx={{
+                        width: "100%",
+                        height: "100%",
+                      }}
+                    >
+                      <TableContainer>
+                        <Table>
+                          <TableHead>
+                            <TableRow>
+                              <TableCell
+                                style={{
+                                  fontFamily: "Poppins",
+                                  width: "70%",
+                                  fontSize: isMdScreen ? "10px" : "16px",
+                                  color: "white",
+                                }}
+                              >
+                                Pool
+                              </TableCell>
+                              <TableCell
+                                style={{
+                                  fontFamily: "Poppins",
+                                  color: "white",
+                                  fontSize: isMdScreen ? "10px" : "16px",
+                                }}
+                              >
+                                Price ($)
+                              </TableCell>
+                              <TableCell
+                                style={{
+                                  fontFamily: "Poppins",
+                                  color: "white",
+                                  fontSize: isMdScreen ? "10px" : "16px",
+                                }}
+                              >
+                                Change (%)
+                              </TableCell>
+                              <TableCell
+                                style={{
+                                  fontFamily: "Poppins",
+                                  fontSize: isMdScreen ? "10px" : "16px",
+                                  color: "white",
+                                }}
+                              >
+                                24h Volume ($)
+                              </TableCell>
+                            </TableRow>
+                          </TableHead>
+                          <TableBody>
+                            {coinsData.length > 0
+                              ? filteredData.slice(0, 10).map((row, index) => (
+                                  <TableRow
+                                    key={index}
+                                    sx={{
+                                      background:
+                                        index % 2 === 0
+                                          ? // ? table_color2
+                                            `rgba(80, 168, 131, 0.5)`
+                                          : "transparent",
                                       fontSize: isMdScreen ? "10px" : "16px",
+                                      borderBottom: "none", // Remove bottom border
+                                      border: "0px solid white",
                                     }}
                                   >
-                                    {row.name}
-                                  </TableCell>
-                                  <TableCell
-                                    style={{
-                                      fontFamily: "Poppins",
-                                      color: "white",
-                                      fontSize: isMdScreen ? "10px" : "16px",
-                                    }}
-                                  >
-                                    $
-                                    {row.price
-                                      ? Number(row.price).toFixed(6)
-                                      : "N/A"}
-                                  </TableCell>
-                                  <TableCell
-                                    style={{
-                                      fontFamily: "Poppins",
-                                      color: "white",
-                                      fontSize: isMdScreen ? "10px" : "16px",
-                                    }}
-                                  >
-                                    {row.change}%
-                                  </TableCell>
-                                  <TableCell
-                                    style={{
-                                      fontFamily: "Poppins",
-                                      color: "white",
-                                      fontSize: isMdScreen ? "10px" : "16px",
-                                    }}
-                                  >
-                                    ${row.volume}
-                                  </TableCell>
-                                </TableRow>
-                              ))
-                            : "Loading..."}
-                        </TableBody>
-                      </Table>
-                    </TableContainer>
-                  </Container>
+                                    <TableCell
+                                      style={{
+                                        fontFamily: "Poppins",
+                                        color: "white",
+                                        fontSize: isMdScreen ? "10px" : "16px",
+                                      }}
+                                    >
+                                      {row.name}
+                                    </TableCell>
+                                    <TableCell
+                                      style={{
+                                        fontFamily: "Poppins",
+                                        color: "white",
+                                        fontSize: isMdScreen ? "10px" : "16px",
+                                      }}
+                                    >
+                                      $
+                                      {row.price
+                                        ? Number(row.price).toFixed(6)
+                                        : "N/A"}
+                                    </TableCell>
+                                    <TableCell
+                                      style={{
+                                        fontFamily: "Poppins",
+                                        color: "white",
+                                        fontSize: isMdScreen ? "10px" : "16px",
+                                      }}
+                                    >
+                                      {row.change}%
+                                    </TableCell>
+                                    <TableCell
+                                      style={{
+                                        fontFamily: "Poppins",
+                                        color: "white",
+                                        fontSize: isMdScreen ? "10px" : "16px",
+                                      }}
+                                    >
+                                      ${row.volume}
+                                    </TableCell>
+                                  </TableRow>
+                                ))
+                              : "Loading..."}
+                          </TableBody>
+                        </Table>
+                      </TableContainer>
+                    </Container>
+                  </Grid>
                 </Grid>
-              </Grid>
               </AcrylicContainer>
             </Container>
           </Grid>

@@ -25,6 +25,7 @@ import footer_img from "./images/footer.png";
 import Telegram from "./images/Telegram.png";
 import Discord from "./images/Discord.png";
 import Twitter from "./images/Twitter.png";
+import launch_App from "./images/launch_App.png";
 import Terms from "./pages/Terms";
 import FooterFunction from "./footer";
 import Privacy_policy from "./pages/privacy_policy";
@@ -33,6 +34,9 @@ import Report_bug from "./pages/report_bug";
 import Not_found from "./pages/not_found";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import styled from "styled-components";
+
+const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
 
 function Header_Function() {
@@ -40,23 +44,51 @@ function Header_Function() {
   const theme = useTheme();
   const isSmScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isMdScreen = useMediaQuery(theme.breakpoints.down("md"));
-
+  const isLgScreen = useMediaQuery(theme.breakpoints.down("lg"));
+  const isXlScreen = useMediaQuery(theme.breakpoints.up("lg"))
   const matches = useMediaQuery("(min-width:600px)");
+
 
   const [value, setValue] = useState(-1);
   const [page, setPage] = useState(-1);
+  const [activeTab, setActiveTab] = useState("");
+
+  const TabsContainer = styled.div`
+    display: flex;
+    overflow-x: auto;
+    justify-content: ${({ isSmScreen }) =>
+      isSmScreen ? "flex-start" : "flex-start"};
+    background-color: transparent;
+    margin: ${({ isSmScreen }) => (isSmScreen ? "20px 0px 0px 0px" : "0px")};
+    width: ${({ isSmScreen }) =>
+      isSmScreen ? "100%" : "60%"}; /* Ensure the tabs take the full width */
+  `;
+  const TabItem = styled.div`
+    padding: 10px 20px;
+    font-family: "Aclonica", sans-serif;
+    color: ${({ selected }) => (selected ? "#50A883" : "white")};
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #50a883;
+    }
+  `;
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
 
   console.log("value", value);
 
   const handleChange = (event, newValue) => {
     console.log("newValue", newValue);
     setValue(newValue);
-    // if(newValue === 0){
-    //   navigate("/blog");
-    // <Homepage />
-    // }else if(newValue === 4){
-    //     navigate("/docs");
-    // }
+    if (newValue > -1 && newValue < 6) {
+      setActiveTab(getTabName(newValue));
+    } else {
+      setActiveTab("");
+    }
   };
 
   const handleChange_footer = (newValue) => {
@@ -66,6 +98,12 @@ function Header_Function() {
 
   const handleClick = () => {
     navigate("/app");
+  };
+
+  const getTabName = (index) => {
+    // Map index to tab names based on your logic
+    const tabNames = ["Blogs", "Swap", "Pool", "Bridge", "Docs", "Forum"];
+    return tabNames[index];
   };
 
   return (
@@ -82,7 +120,7 @@ function Header_Function() {
           backgroundColor: "black",
         }}
       >
-        <Paper
+        {/* <Paper
           sx={{
             width: "100%",
             height: "100%",
@@ -90,86 +128,116 @@ function Header_Function() {
             backgroundSize: "cover",
             overflowY: "auto",
             margin: 0,
-            backgroundPosition:"center",
+            backgroundPosition: "center",
             padding: 0,
             willChange: "transform", // Add will-change property
           }}
-        >
-          <Container sx={{ backgroundColor: "transparent" }}>
+        > */}
+        <Paper sx={{position:"absolute", zIndex:"100", background:"transparent", width:"100%"}}>
+          {isSmScreen ? null : (
+            <img
+              src={launch_App}
+              alt="logo"
+              style={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+                width: "130px",
+                // margin: "10px", // Add some margin to the top and right
+                cursor: "pointer",
+                zIndex:"101",
+              }}
+              onClick={handleClick}
+            />
+          )}
+          <Box
+            sx={{
+              backgroundColor: "transparent",
+              width: isSmScreen ? "100%" : (matches ? "80%": "97%"),
+            }}
+          >
             <Box
               sx={{
                 display: "flex",
                 alignItems: "center",
                 flexWrap: "wrap",
                 flexDirection: isSmScreen ? "column" : "row",
-                justifyContent: "space-between",
+                justifyContent: "space-between", // Centered horizontally for larger screens
                 borderBottom: 1,
                 borderColor: "divider",
-                // direction: isSmScreen ? "column" : "row",
                 width: "100%",
-                margin: "auto",
-                marginBottom: 2, // Adjust the margin as needed
-                backdropFilter: "blur(5px)", // Add backdrop filter for a blurred effect
+                // margin: "auto",
+                // marginBottom: 2, // Adjust the margin as needed
                 padding: "10px", // Add padding for better visibility
+                backdropFilter: "blur(5px)",
               }}
             >
               <img
                 src={logo_top}
                 alt="logo"
-                style={{ margin: "0px", cursor: "pointer" }}
-                onClick={() => setValue(-1)}
+                style={{ width: "80px", margin: isXlScreen ? "0px 0px 0px 0px" : ( isLgScreen ? " 0px 0px 0px 0px" : "0px"), cursor: "pointer" }}
+                onClick={() => {
+                  setValue(-1);
+                  setActiveTab("");
+                }}
               />
 
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                variant="scrollable"
-                scrollButtons="auto"
-                aria-label="scrollable auto tabs example"
-                sx={{
-                  backgroundColor: "transparent", // Set tabs background to transparent
-                  width: isSmScreen ? "90%" : (isMdScreen ? "70%" : "50%"), // Adjust the width here
-                  '& .MuiTabs-scrollButtons': {
-                    // Customize the color of the scroll buttons here
-                    color: 'white', // Replace with your desired color
-                  },
-                }}
-              >
-                <Tab label="Blogs" sx={{ color: "white" }} />
-                <Tab
-                  icon={<LockIcon />}
-                  label="Swap"
-                  sx={{ color: "white", pointerEvents: "none" }}
-                />
-                <Tab
-                  icon={<LockIcon />}
-                  label="Pool"
-                  sx={{ color: "white", pointerEvents: "none" }}
-                />
-                <Tab
-                  icon={<LockIcon />}
-                  label="Bridge"
-                  sx={{ color: "white", pointerEvents: "none" }}
-                />
+              <TabsContainer isSmScreen={isSmScreen}>
+                <TabItem
+                  selected={activeTab === "Blogs"}
+                  onClick={() => handleChange(null, 0)}
+                >
+                  Blogs
+                </TabItem>
+                <TabItem
+                  selected={activeTab === "Swap"}
+                  onClick={() => handleChange(null, 1)}
+                >
+                  Swap
+                </TabItem>
+                <TabItem
+                  selected={activeTab === "Pool"}
+                  onClick={() => handleChange(null, 2)}
+                >
+                  Pool
+                </TabItem>
+                <TabItem
+                  selected={activeTab === "Bridge"}
+                  onClick={() => handleChange(null, 3)}
+                >
+                  Bridge
+                </TabItem>
+                <TabItem
+                  selected={activeTab === "Docs"}
+                  onClick={() => handleChange(null, 4)}
+                >
+                  Docs
+                </TabItem>
+                <TabItem
+                  selected={activeTab === "Forum"}
+                  onClick={() => handleChange(null, 5)}
+                >
+                  Forum
+                </TabItem>
+              </TabsContainer>
+              
 
-                <Tab label="Docs" sx={{ color: "white" }} />
-                <Tab label="Forum" sx={{ color: "white" }} />
-              </Tabs>
-              <Button
+              {/* <Button
                 variant="contained"
                 sx={{
                   backgroundColor: "#50A883",
                   color: "#ffff",
                   borderRadius: "20px",
                   marginTop: isSmScreen ? 2 : 0,
-                  fontFamily:"Maragsa",
+                  fontFamily: "Maragsa",
                 }}
                 onClick={handleClick}
               >
                 Launch App
-              </Button>
+              </Button> */}
             </Box>
-          </Container>
+          </Box>
+          </Paper>
           {/* <Docs_page /> */}
           {value === -1 ? (
             <Homepage callback={handleChange_footer} />
@@ -185,9 +253,9 @@ function Header_Function() {
             <Cookie_policy />
           ) : value === 12 ? (
             <Privacy_policy />
-          ) :  value === 13 ? (
+          ) : value === 13 ? (
             <Report_bug />
-          ) :(
+          ) : (
             <Terms />
           )}
           {value === -1 ? (
@@ -196,7 +264,7 @@ function Header_Function() {
             <FooterFunction callback={handleChange_footer} />
           )}
         </Paper>
-      </Paper>
+      {/* </Paper> */}
     </header>
   );
 }
