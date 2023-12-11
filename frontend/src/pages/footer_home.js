@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Paper, Typography } from "@mui/material";
 import footer_img from "../images/footer.png";
 import Telegram from "../images/Telegram.png";
 import Discord from "../images/Discord.png";
+import Gitbook from "../images/Gitbook.png";
 import Twitter from "../images/Twitter.png";
+import new_bg2_2 from "../images/new_bg2_2.png";
+
 import "../fonts/fonts.css";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -25,10 +28,24 @@ function FooterFunction_home({ callback2 }) {
       <Container
         sx={{
           height: "2px",
-          background: "white",
-          margin: "300px auto 50px auto",
+          background: "#50A883",
+          margin: "0px auto 50px auto",
         }}
       ></Container>
+       <Paper
+          sx={{
+            backgroundColor: "transparent",
+            backgroundImage: `url(${new_bg2_2})`,
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: isSmScreen ? "center" : "center",
+            textAlign: isSmScreen ? "center" : "center",
+            // padding: isSmScreen ? "20px" : "0px", // Add padding for better readability on small screens
+          }}
+        >
       <Grid container sx={{ direction: "column" }}>
         {/* Footer Logo */}
 
@@ -72,9 +89,9 @@ function FooterFunction_home({ callback2 }) {
               <Typography
                 variant="h6"
                 sx={{
-                  fontFamily: "Lora",
+                  fontFamily: "Aclonica",
                   fontSize: isSmScreen ? "20px" : "30px",
-                  color: "white",
+                  color: "#50A883",
                   lineHeight: "1.2",
                   textAlign: "center",
                 }}
@@ -144,9 +161,9 @@ function FooterFunction_home({ callback2 }) {
               <Typography
                 variant="h6"
                 sx={{
-                  fontFamily: "Lora",
+                  fontFamily: "Aclonica",
                   fontSize: isSmScreen ? "16px" : "30px",
-                  color: "white",
+                  color: "#50A883",
                   textAlign: "center",
                   lineHeight: "1.2",
                 }}
@@ -168,11 +185,8 @@ function FooterFunction_home({ callback2 }) {
               >
                 Trade/Swap
                 <br />
-                Liquidity
+                Investor’s Pools
                 <br />
-                Pools
-                <br />
-                Governance
               </Typography>
             </Grid>
             <Grid item xs={6} sm={6} md={6} lg={3}
@@ -186,9 +200,9 @@ function FooterFunction_home({ callback2 }) {
               <Typography
                 variant="h6"
                 sx={{
-                  fontFamily: "Lora",
+                  fontFamily: "Aclonica",
                   fontSize: isSmScreen ? "20px" : "30px",
-                  color: "white",
+                  color: "#50A883",
                   textAlign: "center",
                   lineHeight: "1.2",
                 }}
@@ -243,9 +257,9 @@ function FooterFunction_home({ callback2 }) {
               <Typography
                 variant="h6"
                 sx={{
-                  fontFamily: "Lora",
+                  fontFamily: "Aclonica",
                   fontSize: isSmScreen ? "20px" : "30px",
-                  color: "white",
+                  color: "#50A883",
                   textAlign: "center",
                   lineHeight: "1.2",
                 }}
@@ -264,11 +278,7 @@ function FooterFunction_home({ callback2 }) {
                   lineHeight: "1.2",
                 }}
               >
-                Discord
-                <br />
-                Medium
-                <br />
-                Reddit
+                Gitbook
                 <br />
                 Telegram
                 <br />
@@ -301,8 +311,8 @@ function FooterFunction_home({ callback2 }) {
             </Grid>
             <Grid item sx={{ margin: "0px 30px" }}>
               <img
-                src={Discord}
-                alt="Discord"
+                src={Gitbook}
+                alt="Gitbook"
                 style={{ height: "30px", width: "35px" }}
               />
             </Grid>
@@ -322,7 +332,7 @@ function FooterFunction_home({ callback2 }) {
           <Container
             sx={{
               height: "2px",
-              background: "white",
+              background: "#50A883",
               margin: "10px auto 10px auto",
             }}
           ></Container>
@@ -348,6 +358,7 @@ function FooterFunction_home({ callback2 }) {
           </Typography>
         </Grid>
       </Grid>
+      </Paper>
     </footer>
   );
 }

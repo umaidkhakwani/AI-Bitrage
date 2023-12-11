@@ -17,3 +17,13 @@
     font-family: 'Poly';
     src: url('./Poly-Regular.ttf') format('opentype');
 }
+
+@font-face {
+  font-family: 'Aclonica';
+  src: url('./Aclonica-Regular.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Rakkas';
+  src: url('./Rakkas-Regular.ttf') format('opentype');
+}

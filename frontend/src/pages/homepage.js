@@ -34,6 +34,13 @@ import table_color from "../images/table_color.png";
 import Telegram from "../images/Telegram.png";
 import Discord from "../images/Discord.png";
 import Twitter from "../images/Twitter.png";
+import new1 from "../images/new1.jpg";
+import new_bg2 from "../images/new_bg2.png";
+import new_bg2_2 from "../images/new_bg2_2.png";
+import new_bg3 from "../images/new_bg3.png";
+import new2 from "../images/new2.jpg";
+import new3 from "../images/new3.png";
+import new_bg1 from "../images/new_bg1.png";
 
 import SearchIcon from "@mui/icons-material/Search";
 import FooterFunction from "../footer";
@@ -46,6 +53,32 @@ import axios from "axios";
 
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import styled from 'styled-components';
+
+
+const AcrylicContainer = styled(Container)`
+  position: relative;
+  border-radius: 20px; /* Adjust the border-radius as needed */
+  overflow: hidden;
+  padding-bottom: 30px;
+  background: rgba(255, 255, 255, 0.1); /* Adjust the transparency as needed */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Adjust the shadow as needed */
+`;
+
+const GlowingEffectContainer = styled(Grid)`
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40vh; /* Adjust the height as needed */
+    background: linear-gradient(to top, rgba(80, 168, 131, 0.5), rgba(80, 168, 131, 0));
+    z-index: 1;
+  }
+`;
 
 const tableData = [
   {
@@ -199,10 +232,16 @@ function Homepage({ callback }) {
           variant="h6"
           sx={{
             textAlign: "center",
-            color: "white",
+            color: "#50A883",
+            // color: `linear-gradient(to right, #5F2C81, white )`,
             marginTop: 2,
-            fontFamily: "Lora",
-            fontSize: 30,
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.9)",
+            fontFamily: "Aclonica",
+            fontSize: 40,
+            // background: "linear-gradient(to right,  #ffff, #5F2C81)",
+            // WebkitBackgroundClip: "text",
+            // color: "transparent",
+            // display: 'inline-block',
           }}
         >
           <strong>AI-BITRAGE</strong>
@@ -248,11 +287,12 @@ function Homepage({ callback }) {
         <Button
           variant="contained"
           sx={{
-            backgroundColor: "#FFFFFF",
-            color: "#3D073F",
+            backgroundColor: "#50A883",
+            color: "#ffff",
             borderRadius: "20px",
             margin: " 15px auto 10px", // Center the button
             display: "block",
+            fontFamily:"Rakkas"
             // margin: "0 auto", // Center the button
           }}
           onClick={handleClick}
@@ -333,7 +373,7 @@ function Homepage({ callback }) {
           <img
             src={animation1}
             alt="logo"
-            style={{ width: isSmScreen ? "80%" : (isMdScreen ? "50%" :"40%")}}
+            style={{ width: isSmScreen ? "80%" : isMdScreen ? "50%" : "40%" }}
           />
         </Grid>
         <Grid
@@ -350,10 +390,10 @@ function Homepage({ callback }) {
             alignItems: "center",
           }}
         >
-         <img
+          <img
             src={animation2}
             alt="logo"
-            style={{ width: isSmScreen ? "80%" : (isMdScreen ? "50%" :"40%")}}
+            style={{ width: isSmScreen ? "80%" : isMdScreen ? "50%" : "40%" }}
           />
         </Grid>
         <Grid
@@ -370,10 +410,10 @@ function Homepage({ callback }) {
             // background: "black",
           }}
         >
-           <img
+          <img
             src={animation3}
             alt="logo"
-            style={{ width: isSmScreen ? "80%" : (isMdScreen ? "50%" :"40%")}}
+            style={{ width: isSmScreen ? "80%" : isMdScreen ? "50%" : "40%" }}
           />
         </Grid>
       </Grid>
@@ -385,48 +425,30 @@ function Homepage({ callback }) {
         sx={{
           width: "auto",
           height: "auto",
-          backgroundImage: `url(${bg2})`,
-          backgroundSize: "inherit",
-          overflowY: "hidden",
+          background: "black",
+          // backgroundImage: `url(${bg2})`,
+          // backgroundSize: "inherit",
+          // overflowY: "hidden",
           margin: 0,
           padding: 0,
-          willChange: "transform", // Add will-change property
+          // willChange: "transform", // Add will-change property
         }}
       >
         {/* What is AI-BITRAGE? */}
         <Grid container sx={{ margin: "200px 0px", direction: "row" }}>
-          <Grid
-            item
-            xs={10} // For extra-small screens
-            sm={10} // For small screens
-            md={12} // For medium screens
-            lg={6} // For large screens
-            xl={6}
-          >
-            <img
-              src={home2}
-              alt="logo"
-              style={{
-                // width: "-webkit-fill-available",
-                width:!isLgScreen? "100%" : (isMdScreen ? "100%" : "80%") ,
-                height: !isLgScreen? "100%" : (isMdScreen ? "100%" : "80%") ,
-                marginTop: "0%",
-                marginLeft: "-40%",
-              }} // Adjust width and height as needed
-            />
-          </Grid>
           <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
             <Paper
               sx={{
                 backgroundColor: "transparent",
+                backgroundImage: `url(${new_bg3})`,
                 width: "100%",
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                alignItems: isSmScreen ? "center" : "flex-end",
-                textAlign: isSmScreen ? "center" : "left",
-                padding: isSmScreen ? "20px" : "0px", // Add padding for better readability on small screens
+                alignItems: isSmScreen ? "center" : "center",
+                textAlign: isSmScreen ? "center" : "center",
+                padding: isSmScreen ? "120px 20px 20px 20px" : "120px 0px 0px 0px", // Add padding for better readability on small screens
               }}
             >
               {/* <Typography
@@ -447,20 +469,20 @@ function Homepage({ callback }) {
               <Typography
                 variant="h6"
                 sx={{
-                  textAlign: "center",
-                  color: "white",
-                  margin: isSmScreen ? "10px" : "10px 90px 10px 10px",
-                  fontFamily: "Maragsa",
+                  textAlign: "start",
+                  color: "#50A883",
+                  margin: isSmScreen ? "10px" : "10px 10px 10px 10px",
+                  fontFamily: "Aclonica",
                   fontSize: 40,
                 }}
               >
-                <strong> WHAT IS AI-BITRAGE? </strong>
+                <strong> About AI-BITRAGE </strong>
               </Typography>
               <Typography
                 variant="body1"
                 sx={{
-                  textAlign: isSmScreen ? "center" : "end",
-                  margin: isSmScreen ? "10px" : "10px 90px 10px 100px",
+                  textAlign: isLgScreen ? "center" : "start",
+                  margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
                   color: "white",
                   fontFamily: "Lora",
                   fontSize: 20,
@@ -475,12 +497,17 @@ function Homepage({ callback }) {
                 exist and operate as an Initial Dex Offering (IDO). The IDO is
                 backed by investors that would for sure be known as whales if
                 their wallets were viewed by the general public.
+                <br />
+                <br />
+                The software is revolutionary and the development team has
+                cultivated an algorithm, capable of evaluating Ethereum tokens
+                across the blockchain.
               </Typography>
-              <Typography
+              {/* <Typography
                 variant="body1"
                 sx={{
-                  textAlign: isSmScreen ? "center" : "end",
-                  margin: isSmScreen ? "10px" : "10px 90px 10px 100px",
+                  textAlign: isLgScreen ? "center" : "start",
+                  margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
                   color: "white",
                   fontFamily: "Lora",
                   fontSize: 24,
@@ -490,159 +517,184 @@ function Homepage({ callback }) {
                 cultivated an algorithm, capable of evaluating Ethereum tokens
                 across the blockchain.
               </Typography>
-              <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: "#FFFFFF",
-                  color: "#3D073F",
-                  borderRadius: "20px",
-                  margin: " 15px auto 10px", // Center the button
-                  display: "block",
-                  // margin: "0 auto", // Center the button
-                }}
-                onClick={handleClick}
-              >
-                Launch App
-              </Button>
+               */}
             </Paper>
+          </Grid>
+          <Grid
+            item
+            xs={10} // For extra-small screens
+            sm={10} // For small screens
+            md={12} // For medium screens
+            lg={6} // For large screens
+            xl={6}
+          >
+            <img
+              src={new1}
+              alt="logo"
+              style={{
+                // width: "-webkit-fill-available",
+                width: !isLgScreen ? "100%" : isMdScreen ? "100%" : "80%",
+                height: !isLgScreen ? "100%" : isMdScreen ? "100%" : "80%",
+                marginTop: "0%",
+                // marginLeft: "-40%",
+              }} // Adjust width and height as needed
+            />
           </Grid>
         </Grid>
 
-        {/* Video  */}
-        <Container
+          {/* Video  */}
+          <Container
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100vh",
+            }}
+          >
+            <Grid container>
+              <Grid
+                item
+                xs={12} // For extra-small screens
+                sm={12} // For small screens
+                md={12} // For medium screens
+                lg={12} // For large screens
+                xl={12} // For extra-large screens
+              >
+                <video width="100%" height="100%" controls>
+                  <source
+                    src="/path/to/your/local/video.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </Grid>
+            </Grid>
+          </Container>
+
+        {/* Core Features  */}
+
+        <Paper
           sx={{
+            backgroundColor: "transparent",
+            backgroundImage: `url(${new_bg2_2})`,
+            width: "100%",
+            height: "100%",
             display: "flex",
+            flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
+            alignItems: isSmScreen ? "center" : "center",
+            textAlign: isSmScreen ? "center" : "center",
+            // padding: isSmScreen ? "20px" : "0px", // Add padding for better readability on small screens
           }}
         >
-          <Grid container>
+          <Grid
+            container
+            spacing={0}
+            sx={{ margin: "100px 0px", direction: "row" }}
+          >
             <Grid
               item
               xs={12} // For extra-small screens
               sm={12} // For small screens
-              md={12} // For medium screens
-              lg={12} // For large screens
-              xl={12} // For extra-large screens
+              md={6} // For medium screens
+              lg={6} // For large screens
+              xl={6}
             >
-              <video width="100%" height="100%" controls>
-                <source src="/path/to/your/local/video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </Grid>
-          </Grid>
-        </Container>
-
-        {/* Core Features  */}
-
-        <Grid
-          container
-          spacing={0}
-          sx={{ margin: "100px 0px", direction: "row" }}
-        >
-          <Grid
-            item
-            xs={12} // For extra-small screens
-            sm={12} // For small screens
-            md={6} // For medium screens
-            lg={6} // For large screens
-            xl={6}
-          >
-            <Paper
-              sx={{
-                backgroundColor: "transparent",
-                width: isSmScreen ? "90%" : "80%",
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center", // Align content at the end
-                alignItems: isSmScreen ? "center" : "flex-end", // Center the content horizontally
-                marginLeft: "auto", // Push the Paper to the right
-              }}
-            >
-              <Container
-                width="100%"
+              <Paper
                 sx={{
-                  display: "column",
-                  justifyContent: "center",
-                  alignItems: isSmScreen ? "center" : "flex-end",
+                  backgroundColor: "transparent",
+                  width: isSmScreen ? "90%" : "80%",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center", // Align content at the end
+                  alignItems: isSmScreen ? "center" : "flex-end", // Center the content horizontally
+                  marginLeft: "auto", // Push the Paper to the right
                 }}
               >
-                <Typography
-                  variant="h6"
+                <Container
+                  width="100%"
                   sx={{
-                    textAlign: isSmScreen ? "center" : "start",
-                    color: "white",
-                    margin: "10px 20px 10px 20px",
-                    fontFamily: "Maragsa",
-                    fontSize: isSmScreen ? "50px" : "70px",
-                    width: "70%",
+                    display: "column",
+                    justifyContent: "center",
+                    alignItems: isSmScreen ? "center" : "flex-end",
                   }}
                 >
-                  <strong> Core </strong>
-                  <br />
-                  <strong> Features </strong>
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    textAlign: isSmScreen ? "center" : "start",
-                    margin: "10px 20px 10px 20px",
-                    color: "white",
-                    fontFamily: "Lora",
-                    fontSize: "22px",
-                    width: "70%",
-                  }}
-                >
-                  <strong>Swap</strong>
-                  <br />
-                  <strong>Bridge</strong>
-                  <br />
-                  <strong>Pool</strong>
-                  <br />
-                  <strong>Governance</strong>
-                  <br />
-                </Typography>
-              </Container>
-            </Paper>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      textAlign: isSmScreen ? "center" : "start",
+                      color: "#50A883",
+                      // color: "white",
+                      margin: "10px 20px 10px 20px",
+                      fontFamily: "Aclonica",
+                      fontSize: isSmScreen ? "50px" : "70px",
+                      width: "70%",
+                    }}
+                  >
+                    <strong> Core </strong>
+                    <br />
+                    <strong> Features </strong>
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: isSmScreen ? "center" : "start",
+                      margin: "10px 20px 10px 20px",
+                      color: "white",
+                      fontFamily: "Lora",
+                      fontSize: "22px",
+                      width: "70%",
+                    }}
+                  >
+                    <strong>Swap</strong>
+                    <br />
+                    <strong>Bridge</strong>
+                    <br />
+                    <strong>Investor’s Pool</strong>
+                    <br />
+                  </Typography>
+                </Container>
+              </Paper>
+            </Grid>
+            <Grid
+              item
+              xs={12} // For extra-small screens
+              sm={12} // For small screens
+              md={6} // For medium screens
+              lg={6} // For large screens
+              xl={6}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
+              <img
+                src={new2}
+                alt="animation"
+                style={{ margin: "0px", width: "70%" }}
+              />
+            </Grid>
           </Grid>
-          <Grid
-            item
-            xs={12} // For extra-small screens
-            sm={12} // For small screens
-            md={6} // For medium screens
-            lg={6} // For large screens
-            xl={6}
-            sx={{ display: "flex", justifyContent: "center" }}
-          >
-            <img
-              src={animation4}
-              alt="animation"
-              style={{ margin: "0px", width: "70%" }}
-            />
-          </Grid>
-        </Grid>
+        </Paper>
 
         {/* How AI-BITRAGE will work? */}
-
+        <GlowingEffectContainer>
         <Grid container spacing={0} sx={{ margin: "0px", direction: "row" }}>
-         {!isMdScreen ? (
-          <Grid
-            item
-            xs={12} // For extra-small screens
-            sm={12} // For small screens
-            md={6} // For medium screens
-            lg={6} // For large screens
-            xl={6}
-          >
-            <img
-              src={animation5}
-              alt="logo"
-              style={{ margin: "0px", width: "100%" }}
-            />
-          </Grid>
-          ) : (null)}
+          
+          {!isMdScreen ? (
+            <Grid
+              item
+              xs={12} // For extra-small screens
+              sm={12} // For small screens
+              md={6} // For medium screens
+              lg={6} // For large screens
+              xl={6}
+            >
+              <img
+                src={new3}
+                alt="logo"
+                style={{ position:"relative", right:"15%", margin: "0px", width: "100%" }}
+              />
+            </Grid>
+          ) : null}
           <Grid
             item
             xs={12} // For extra-small screens
@@ -666,9 +718,10 @@ function Homepage({ callback }) {
                 variant="h6"
                 sx={{
                   textAlign: "center",
-                  color: "white",
+                  color: "#50A883",
+                  // color: "white",
                   margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
-                  fontFamily: "Maragsa",
+                  fontFamily: "Aclonica",
                   fontSize: 40,
                 }}
               >
@@ -677,7 +730,7 @@ function Homepage({ callback }) {
               <Typography
                 variant="body1"
                 sx={{
-                  textAlign: isSmScreen ? "center" : "end",
+                  textAlign: isLgScreen ? "center" : "end",
                   margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
                   color: "white",
                   fontFamily: "Lora",
@@ -696,11 +749,12 @@ function Homepage({ callback }) {
               <Button
                 variant="contained"
                 sx={{
-                  backgroundColor: "#FFFFFF",
-                  color: "#3D073F",
+                  backgroundColor: "#50A883",
+                  color: "#ffff",
                   borderRadius: "20px",
                   margin: " 15px auto 10px", // Center the button
                   display: "block",
+                  fontFamily:"Maragsa",
                   // margin: "0 auto", // Center the button
                 }}
                 onClick={handleClick}
@@ -710,37 +764,72 @@ function Homepage({ callback }) {
             </Paper>
           </Grid>
           {isMdScreen ? (
-          <Grid
-            item
-            xs={12} // For extra-small screens
-            sm={12} // For small screens
-            md={6} // For medium screens
-            lg={6} // For large screens
-            xl={6}
-          >
-            <img
-              src={animation5}
-              alt="logo"
-              style={{ margin: "0px", width: "100%" }}
-            />
-          </Grid>
-          ): (null)}
+            <Grid
+              item
+              xs={12} // For extra-small screens
+              sm={12} // For small screens
+              md={6} // For medium screens
+              lg={6} // For large screens
+              xl={6}
+            >
+              <img
+                src={new3}
+                alt="logo"
+                style={{ position:"relative", right:"15%", margin: "0px", width: "100%" }}
+              />
+            </Grid>
+          ) : null}
+
         </Grid>
+        </GlowingEffectContainer>
 
         {/* Pools */}
+
+        {/* <Paper
+              sx={{
+                backgroundColor: "transparent",
+                backgroundImage: `url(${new_bg3})`,
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: isSmScreen ? "center" : "center",
+                textAlign: isSmScreen ? "center" : "center",
+                padding: isSmScreen ? "20px" : "0px", // Add padding for better readability on small screens
+              }}
+            > */}
         <Grid
           container
           spacing={0}
-          sx={{ marginTop: "200px", direction: "column" }}
+          sx={{
+            // marginTop: "100px",
+            direction: "column",
+            backgroundImage: `url(${new_bg1})`,
+            backgroundSize: "cover", // or "100%"
+            backgroundRepeat: "no-repeat", // or "repeat"
+            padding: "150px 0px",
+          }}
         >
           <Grid item lg={12}>
             <Typography
               variant="h6"
+              // sx={{
+              //   textAlign: "center",
+              //   fontFamily: "Maragsa",
+              //   fontSize: 40,
+              //   margin: "10px 50px 10px 10px",
+              //   // backgroundImage: 'linear-gradient(45deg, white, #e74c3c)',
+              //   background: `linear-gradient(to right, #061F32, #00EDFF )`,
+              //   textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
+              //   WebkitBackgroundClip: 'text',
+              //   WebkitTextFillColor: 'transparent',
+              // }}
               sx={{
                 textAlign: "center",
-                color: "white",
+                color: "#50A883",
                 margin: "10px 50px 10px 10px",
-                fontFamily: "Maragsa",
+                fontFamily: "Aclonica",
                 fontSize: 40,
               }}
             >
@@ -749,6 +838,7 @@ function Homepage({ callback }) {
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <Container>
+              <AcrylicContainer>
               <Typography
                 variant="h6"
                 sx={{
@@ -909,7 +999,7 @@ function Homepage({ callback }) {
                 </Grid>
               </Grid>
               <Grid container sx={{ marginTop: "30px", direction: "row" }}>
-                <Grid item xs={12} md={12} lg={2}>
+                <Grid item xs={12} md={12} lg={3}>
                   <Typography
                     variant="h6"
                     sx={{
@@ -923,7 +1013,7 @@ function Homepage({ callback }) {
                     Market Data
                   </Typography>
                 </Grid>
-                <Grid item xs={12} md={12} lg={6}></Grid>
+                <Grid item xs={12} md={12} lg={5}></Grid>
                 {/* <Grid item xs={12} md={12} lg={4}>
                   <Container
                     sx={{
@@ -1040,7 +1130,8 @@ function Homepage({ callback }) {
                                   sx={{
                                     background:
                                       index % 2 === 0
-                                        ? table_color2
+                                        // ? table_color2
+                                        ?`rgba(80, 168, 131, 0.5)`
                                         : "transparent",
                                     fontSize: isMdScreen ? "10px" : "16px",
                                     borderBottom: "none", // Remove bottom border
@@ -1095,8 +1186,19 @@ function Homepage({ callback }) {
                   </Container>
                 </Grid>
               </Grid>
+              </AcrylicContainer>
             </Container>
           </Grid>
+        </Grid>
+        <Grid
+          container
+          spacing={0}
+          sx={{
+            marginTop: "0px",
+            direction: "column",
+            // backgroundImage: `url(${new_bg1})`,
+          }}
+        >
           <Grid item xs={12} md={12} lg={12}>
             <FooterFunction_home callback2={handle_callback} />
           </Grid>

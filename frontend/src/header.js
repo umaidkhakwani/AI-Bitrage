@@ -14,6 +14,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import logo_top from "./images/logo_top.png";
 
 import bg1 from "./images/background1.png";
+import bg_new from "./images/background_new.png";
 import bg2 from "./images/background2.png";
 import bg3 from "./images/background3.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -85,7 +86,7 @@ function Header_Function() {
           sx={{
             width: "100%",
             height: "100%",
-            backgroundImage: `url(${value === -1 ? bg1 : bg3})`,
+            backgroundImage: `url(${value === -1 ? bg_new : bg3})`,
             backgroundSize: "cover",
             overflowY: "auto",
             margin: 0,
@@ -157,10 +158,11 @@ function Header_Function() {
               <Button
                 variant="contained"
                 sx={{
-                  backgroundColor: "#FFFFFF",
-                  color: "#3D073F",
+                  backgroundColor: "#50A883",
+                  color: "#ffff",
                   borderRadius: "20px",
                   marginTop: isSmScreen ? 2 : 0,
+                  fontFamily:"Maragsa",
                 }}
                 onClick={handleClick}
               >
