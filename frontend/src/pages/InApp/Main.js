@@ -23,17 +23,22 @@ import {
 } from "@mui/material";
 
 import animation6 from "../../images/animation6.gif";
-import bg3 from "../../images/background3.png";
+import bg3 from "../../images/app_bg.gif";
 import sidebar from "../../images/sidebar.png";
-import Bridge from "../../images/Bridge.png";
-import Swap from "../../images/Swap.png";
-import Pool from "../../images/Pool.png";
+import Bridge from "../../images/bridge_img.png";
+import Swap from "../../images/swap_img.png";
+import Pool from "../../images/pool_img.png";
+import Bridge_select from "../../images/bridge_select.png";
+import Swap_select from "../../images/swap_select.png";
+import Pool_select from "../../images/pool_select.png";
+
 import transfer from "../../images/transfer.png";
 import coin1 from "../../images/coin1.png";
 import connect_wallet from "../../images/connect_wallet.png";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import logo_top from "../../images/logo_top.png";
+import app_sidebar from "../../images/app_sidebar.gif";
 
 import "../../fonts/fonts.css";
 import FooterFunction from "../../footer";
@@ -43,6 +48,7 @@ import Pool_function from "./Pool";
 import ReplyIcon from "@mui/icons-material/Reply";
 import { Link, useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
+import styled from "styled-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 function Main() {
@@ -56,7 +62,30 @@ function Main() {
   const navigate = useNavigate();
   const [pageOption, setpageOption] = useState("swap");
   const [open, setOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("");
   const [value, setValue] = useState(-1);
+
+  const TabsContainer = styled.div`
+    display: flex;
+    overflow-x: auto;
+    justify-content: ${({ isSmScreen }) =>
+      isSmScreen ? "center" : "center"};
+    background-color: transparent;
+    margin: ${({ isSmScreen }) => (isSmScreen ? "20px 0px 0px 0px" : "0px")};
+    width: ${({ isSmScreen }) =>
+      isSmScreen ? "100%" : "60%"}; /* Ensure the tabs take the full width */
+  `;
+  const TabItem = styled.div`
+    padding: 10px 20px;
+    font-family: "Aclonica", sans-serif;
+    color: ${({ selected }) => (selected ? "#50A883" : "white")};
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #50a883;
+    }
+  `;
 
   const handleChange = (event, newValue) => {
     console.log("newValue", newValue);
@@ -105,8 +134,9 @@ function Main() {
               justifyContent: "center",
               alignContent: "center",
               flexWrap: "nowrap",
-              background: `url(${sidebar})`,
-
+              background: `url(${app_sidebar})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
               zIndex: 100,
               borderRadius: "7px",
               left: "100px",
@@ -151,44 +181,83 @@ function Main() {
                 }}
               >
                 <Tooltip title="Bridge" placement="bottom-end">
-                  <img
-                    src={Bridge}
-                    alt="Documentation Image"
-                    style={{
-                      width: "80%",
-                      height: "70px",
-                      cursor: "pointer",
-                      margin: "20px 10px",
-                    }}
-                    onClick={() => setpageOption("bridge")}
-                  />
+                  {pageOption === "bridge" ? (
+                    <img
+                      src={Bridge_select}
+                      alt="Documentation Image"
+                      style={{
+                        width: "80%",
+                        height: "70px",
+                        cursor: "pointer",
+                        margin: "20px 10px",
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src={Bridge}
+                      alt="Documentation Image"
+                      style={{
+                        width: "80%",
+                        height: "70px",
+                        cursor: "pointer",
+                        margin: "20px 10px",
+                      }}
+                      onClick={() => setpageOption("bridge")}
+                    />
+                  )}
                 </Tooltip>
                 <Tooltip title="Pool" placement="bottom-end">
-                  <img
-                    src={Pool}
-                    alt="Documentation Image"
-                    style={{
-                      width: "80%",
-                      height: "70px",
-                      cursor: "pointer",
-                      margin: "20px 10px",
-                    }}
-                    onClick={() => setpageOption("pool")}
-                  />
+                  {pageOption === "pool" ? (
+                    <img
+                      src={Pool_select}
+                      alt="Documentation Image"
+                      style={{
+                        width: "80%",
+                        height: "70px",
+                        cursor: "pointer",
+                        margin: "20px 10px",
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src={Pool}
+                      alt="Documentation Image"
+                      style={{
+                        width: "80%",
+                        height: "70px",
+                        cursor: "pointer",
+                        margin: "20px 10px",
+                      }}
+                      onClick={() => setpageOption("pool")}
+                    />
+                  )}
                 </Tooltip>
 
                 <Tooltip title="Swap" placement="bottom-end">
-                  <img
-                    src={Swap}
-                    alt="Documentation Image"
-                    style={{
-                      width: "80%",
-                      height: "70px",
-                      cursor: "pointer",
-                      margin: "20px 10px",
-                    }}
-                    onClick={() => setpageOption("swap")}
-                  />
+                  {pageOption === "swap" ? (
+                    <img
+                      src={Swap_select}
+                      alt="Documentation Image"
+                      style={{
+                        width: "80%",
+                        height: "70px",
+                        cursor: "pointer",
+                        margin: "20px 10px",
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src={Swap}
+                      alt="Documentation Image"
+                      style={{
+                        width: "80%",
+                        height: "70px",
+                        cursor: "pointer",
+                        margin: "20px 10px",
+                      }}
+                      onClick={() => setpageOption("swap")}
+                    />
+                  )}
                 </Tooltip>
               </Box>
             </Grid>
@@ -221,7 +290,7 @@ function Main() {
           <Box
             sx={{
               width: "100%",
-              height: isSmScreen ?"130px ":"85px", // Adjusted height
+              height: isSmScreen ? "130px " : "85px", // Adjusted height
               zIndex: "5",
               position: "absolute",
               // left: "5%",
@@ -238,11 +307,39 @@ function Main() {
             <img
               src={logo_top}
               alt="logo"
-              style={{ margin: "0px", cursor: "pointer" }}
+              style={{ margin: "0px", cursor: "pointer", width: "55px" }}
               onClick={handleClick_Home}
             />
-
-            <Tabs
+            <TabsContainer isSmScreen={isSmScreen}>
+              <TabItem
+                selected={activeTab === "Swap"}
+                onClick={() => {
+                  setpageOption("swap");
+                  setActiveTab("Swap");
+                }}
+              >
+                Swap
+              </TabItem>
+              <TabItem
+                selected={activeTab === "Pool"}
+                onClick={() => {
+                  setpageOption("pool");
+                  setActiveTab("Pool");
+                }}
+              >
+                Pool
+              </TabItem>
+              <TabItem
+                selected={activeTab === "Bridge"}
+                onClick={() => {
+                  setpageOption("bridge");
+                  setActiveTab("Bridge");
+                }}
+              >
+                Bridge
+              </TabItem>
+            </TabsContainer>
+            {/* <Tabs
               value={value}
               onChange={handleChange}
               variant="scrollable"
@@ -272,7 +369,7 @@ function Main() {
                 sx={{ color: "white" }}
                 onClick={() => setpageOption("bridge")}
               />
-            </Tabs>
+            </Tabs> */}
           </Box>
         ) : null}
 
@@ -380,7 +477,70 @@ function Main() {
             </Dialog>
             {/* ------------------------------------------------------------------------------------------------------------------- */}
             {/* swap container */}
-            <Grid item xs={12} md={8.25} lg={8.25} zIndex={4}>
+            <Grid
+              item
+              xs={12}
+              md={10.25}
+              lg={10.25}
+              zIndex={4}
+              sx={{
+                background: "transparent",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+                height: "100%",
+                flexDirection: "column",
+              }}
+            >
+              {!isMdScreen ? (
+                <Box
+                  sx={{
+                    display: "flex",
+                    // justifyContent: "center",
+                    width: "200px",
+                    height: "35px",
+                    zIndex: "3",
+                    background: "5C2D7C",
+                    flexDirection: "row",
+                    position: "absolute",
+                    right: "0px",
+                    top: "0px",
+                    marginTop: "40px",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      background: "white",
+                      width: "60%",
+                      borderRadius: "7px",
+                      cursor: "pointer",
+                      margin: "2px",
+                      background: "#50A883",
+                    }}
+                    onClick={handleClickOpen}
+                  >
+                    <Typography
+                      style={{
+                        fontFamily: "Aclonica",
+                        fontSize: "12px",
+                        color: "#ffff",
+                      }}
+                    >
+                      Connect Wallet
+                    </Typography>
+                  </Box>
+                  <img
+                    src={connect_wallet}
+                    alt="Documentation Image"
+                    style={{ width: "20%", height: "100%" }}
+                  />
+                </Box>
+              ) : null}
+
               {pageOption === "swap" ? (
                 <Swap_function />
               ) : pageOption === "bridge" ? (
@@ -392,45 +552,44 @@ function Main() {
               )}
 
               {/* Connect Wallet */}
-              {pageOption === "pool" ? (
-                ""
-              ) : (
-                <Box
-                  sx={{
-                    margin: "20px auto",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    background: "#5C2D7C",
-                    width: isSmScreen
-                      ? "300px"
-                      : isMdScreen
-                      ? "400px"
-                      : "500px",
-                    height: "60px",
-                    borderRadius: "20px",
-                    padding: 0,
-                    position: "relative",
-                    cursor: "pointer",
-                  }}
-                  onClick={handleClickOpen}
-                >
-                  <Typography
-                    style={{
-                      fontFamily: "Maragsa",
-                      fontSize: "18px",
-                      color: "#9E9D9D",
-                      margin: "0px 0px 0px 0px",
-                    }}
-                  >
-                    Connect Wallet
-                  </Typography>
-                </Box>
-              )}
+              {
+                pageOption === "pool" ? "" : null
+                // <Box
+                //   sx={{
+                //     margin: "20px auto",
+                //     display: "flex",
+                //     justifyContent: "center",
+                //     alignItems: "center",
+                //     background: "#5C2D7C",
+                //     width: isSmScreen
+                //       ? "300px"
+                //       : isMdScreen
+                //       ? "400px"
+                //       : "500px",
+                //     height: "60px",
+                //     borderRadius: "20px",
+                //     padding: 0,
+                //     position: "relative",
+                //     cursor: "pointer",
+                //   }}
+                //   onClick={handleClickOpen}
+                // >
+                //   <Typography
+                //     style={{
+                //       fontFamily: "Maragsa",
+                //       fontSize: "18px",
+                //       color: "#9E9D9D",
+                //       margin: "0px 0px 0px 0px",
+                //     }}
+                //   >
+                //     Connect Wallet
+                //   </Typography>
+                // </Box>
+              }
             </Grid>
             {/* ----------------------------------------------  Animation ------------------------------------------------------- */}
-            {!isMdScreen ? (
-              <Grid item xs={12} md={2} lg={2}>
+            {/* {!isMdScreen ? (
+              <Grid item xs={12} md={0} lg={0}>
                 <Box
                   sx={{
                     display: "flex",
@@ -449,18 +608,19 @@ function Main() {
                       justifyContent: "center",
                       alignItems: "center",
                       background: "white",
-                      width: "80%",
-                      borderRadius: "20px",
+                      width: "60%",
+                      borderRadius: "7px",
                       cursor: "pointer",
                       margin: "2px",
+                      background: "#50A883",
                     }}
                     onClick={handleClickOpen}
                   >
                     <Typography
                       style={{
-                        fontFamily: "Maragsa",
-                        fontSize: "14px",
-                        color: "#9E9D9D",
+                        fontFamily: "Aclonica",
+                        fontSize: "12px",
+                        color: "#ffff",
                       }}
                     >
                       Connect Wallet
@@ -502,7 +662,7 @@ function Main() {
                   ></div>
                 </div>
               </Grid>
-            ) : null}
+            ) : null} */}
             {/* ----------------------------------------------------------------------------------------------------------------- */}
           </Grid>
         </Paper>

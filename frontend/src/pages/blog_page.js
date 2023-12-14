@@ -1,7 +1,10 @@
 import React from "react";
-import { Grid, Typography, useMediaQuery  } from "@mui/material";
+import { Grid, Paper, Typography, useMediaQuery } from "@mui/material";
 
 import animation5 from "../images/animation5.gif";
+import new2 from "../images/new2.jpg";
+import new_bg3 from "../images/new_bg3.png";
+import new_bg2_2 from "../images/blog_background.gif";
 
 import "../fonts/fonts.css";
 import FooterFunction from "../footer";
@@ -13,6 +16,17 @@ function Blog_page() {
 
   return (
     <div>
+      <Paper
+        sx={{
+          backgroundImage: `url(${new_bg2_2})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
       <Grid
         container
         spacing={2}
@@ -61,44 +75,43 @@ function Blog_page() {
             The algorithm will then signal back that it has detected a potential
             arbitrage, our team will then re check the arbitrage for our users
             safety and our reputation and then go ahead or will ignore and wait
-            for the next signal to occur. 
+            for the next signal to occur.
             <br />
-            <br /> 
-            The algorithm, is developed to monitor every aspect of a new
-            token is detail. The details it monitors is the contract, lock,
-            renounce, market cap, liquidity, telegram, CoinMarketCap listings,
-            CoinGecko listings, website and token mentioning.The algorithm was
-            built up on analysis from over a two years of research and
-            networking (yes we existed in the golden era of 2021).  
             <br />
-            <br /> 
-            All users are
-            probably wondering “why is the word AI implemented in this
-            project”?. This is because the algorithm was actually developed
+            The algorithm, is developed to monitor every aspect of a new token
+            is detail. The details it monitors is the contract, lock, renounce,
+            market cap, liquidity, telegram, CoinMarketCap listings, CoinGecko
+            listings, website and token mentioning.The algorithm was built up on
+            analysis from over a two years of research and networking (yes we
+            existed in the golden era of 2021).
+            <br />
+            <br />
+            All users are probably wondering “why is the word AI implemented in
+            this project”?. This is because the algorithm was actually developed
             using AI technology to code this high tech IDO. The team thought why
             not use AI due to its constant learning and efforts to always
             provide accurate and modern knowledge to the stage. It made perfect
             sense and yes you guessed it, it worked. We have developed a new way
-            of decentralized trading to the fortunate people within crypto. 
+            of decentralized trading to the fortunate people within crypto.
             <br />
-            <br /> 
-            For
-            More Information, Visit our Socials:
+            <br />
+            For More Information, Visit our Socials:
           </Typography>
         </Grid>
 
         {/* Image */}
-       {isMdLgScreen && (
-        <Grid item xs={12} md={4}>
-          <img
-            src={animation5}
-            alt="Documentation Image"
-            style={{ width: "100%", height: "auto", marginTop: "100%" }}
-          />
-        </Grid>
-      )}
+        {isMdLgScreen && (
+          <Grid item xs={12} md={4}>
+            <img
+              src={new2}
+              alt="Documentation Image"
+              style={{ width: "100%", height: "auto", marginTop: "100%" }}
+            />
+          </Grid>
+        )}
       </Grid>
       {/* <FooterFunction /> */}
+      </Paper>
     </div>
   );
 }

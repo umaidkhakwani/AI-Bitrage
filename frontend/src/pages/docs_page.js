@@ -1,7 +1,11 @@
 import React from "react";
-import { Grid, Typography, useMediaQuery } from "@mui/material";
+import { Grid, Paper, Typography, useMediaQuery } from "@mui/material";
 
 import animation5 from "../images/animation5.gif";
+import new_bg2_2 from "../images/blog_background.gif";
+import new1 from "../images/new1.jpg";
+
+
 
 import "../fonts/fonts.css";
 import FooterFunction from "../footer";
@@ -13,6 +17,18 @@ function Docs_page() {
 
   return (
     <div>
+       <Paper
+        sx={{
+          backgroundImage: `url(${new_bg2_2})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          paddingBottom:"100px",
+        }}
+      >
       <Grid
         container
         spacing={2}
@@ -87,16 +103,17 @@ function Docs_page() {
 
         {/* Image */}
         {isMdLgScreen && (
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} sx={{display:"flex", justifyContent:"center", alignItems:"flex-end"}}>
             <img
-              src={animation5}
+              src={new1}
               alt="Documentation Image"
-              style={{ width: "100%", height: "auto" }}
+              style={{ width: "100%", height: "auto",}}
             />
           </Grid>
         )}
       </Grid>
       {/* <FooterFunction /> */}
+      </Paper>
     </div>
   );
 }

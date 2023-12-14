@@ -56,6 +56,9 @@ import axios from "axios";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import styled from "styled-components";
+import Modal from "react-modal";
+import ModalComponent from "./Modal";
+import CustomModal from "./Modal";
 
 const AcrylicContainer = styled(Container)`
   position: relative;
@@ -160,7 +163,7 @@ function Homepage({ callback }) {
 
   const [coinsData, setCoinsData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
+  
   // const videoRef = useRef(null);
 
   // useEffect(() => {
@@ -228,7 +231,7 @@ function Homepage({ callback }) {
         sx={{
           width: "100%",
           // height: "100vh",
-          backgroundImage: `url(${ background1})`,
+          backgroundImage: `url(${background1})`,
           backgroundSize: "cover",
           // overflowY: "auto",
           margin: 0,
@@ -237,7 +240,9 @@ function Homepage({ callback }) {
           willChange: "transform", // Add will-change property
         }}
       >
-   {/* <Paper
+        <ModalComponent />
+
+        {/* <Paper
       sx={{
         width: '100%',
         height: '100vh',
@@ -269,7 +274,6 @@ function Homepage({ callback }) {
       </video> */}
         <Paper
           sx={{
-            
             backgroundColor: "transparent",
             width: "40%", // Default width
             margin: "0 auto", // Center the paper
@@ -497,7 +501,14 @@ function Homepage({ callback }) {
         }}
       >
         {/* What is AI-BITRAGE? */}
-        <Grid container sx={{ margin: "0px 0px", direction: "row" , padding: isLgScreen ? "0px 0px 30px 0px" : "0px"}}>
+        <Grid
+          container
+          sx={{
+            margin: "0px 0px",
+            direction: "row",
+            padding: isLgScreen ? "0px 0px 30px 0px" : "0px",
+          }}
+        >
           <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
             <Paper
               sx={{
@@ -530,43 +541,44 @@ function Homepage({ callback }) {
                 </strong>
               </Typography> */}
               <Container sx={{ width: isSmScreen ? "100%" : "65%" }}>
-              <Typography
-                variant="h6"
-                sx={{
-                  textAlign: isLgScreen ? "center" : "start",
-                  color: "#50A883",
-                  // margin: isSmScreen ? "10px" : "10px 10px 10px 10px",
-                  fontFamily: "Aclonica",
-                  fontSize: 40,
-                }}
-              >
-                <strong> About AI-BITRAGE </strong>
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  textAlign: isLgScreen ? "center" : "start",
-                  // margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
-                  color: "white",
-                  fontFamily: "Lora",
-                  fontSize: 20,
-                }}
-              >
-                <span>
-                  <strong>AI-BITRAGE</strong>
-                </span>{" "}
-                AI-BITRAGE is a new launchpad being built for the crypto space.
-                AI-BITRAGE has a vision of bringing guaranteed profits to all
-                users across the space. The launchpad is being developed to
-                exist and operate as an Initial Dex Offering (IDO). The IDO is
-                backed by investors that would for sure be known as whales if
-                their wallets were viewed by the general public.
-                <br />
-                <br />
-                The software is revolutionary and the development team has
-                cultivated an algorithm, capable of evaluating Ethereum tokens
-                across the blockchain.
-              </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    textAlign: isLgScreen ? "center" : "start",
+                    color: "#50A883",
+                    // margin: isSmScreen ? "10px" : "10px 10px 10px 10px",
+                    fontFamily: "Aclonica",
+                    fontSize: 40,
+                  }}
+                >
+                  <strong> About AI-BITRAGE </strong>
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    textAlign: isLgScreen ? "center" : "start",
+                    // margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
+                    color: "white",
+                    fontFamily: "Lora",
+                    fontSize: 20,
+                  }}
+                >
+                  <span>
+                    <strong>AI-BITRAGE</strong>
+                  </span>{" "}
+                  AI-BITRAGE is a new launchpad being built for the crypto
+                  space. AI-BITRAGE has a vision of bringing guaranteed profits
+                  to all users across the space. The launchpad is being
+                  developed to exist and operate as an Initial Dex Offering
+                  (IDO). The IDO is backed by investors that would for sure be
+                  known as whales if their wallets were viewed by the general
+                  public.
+                  <br />
+                  <br />
+                  The software is revolutionary and the development team has
+                  cultivated an algorithm, capable of evaluating Ethereum tokens
+                  across the blockchain.
+                </Typography>
               </Container>
               {/* <Typography
                 variant="body1"
@@ -592,7 +604,11 @@ function Homepage({ callback }) {
             md={12} // For medium screens
             lg={6} // For large screens
             xl={6}
-            sx={{display:"flex", justifyContent:"center", alignItems:"center"}}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
             <img
               src={new1}
@@ -621,44 +637,46 @@ function Homepage({ callback }) {
             // padding: isSmScreen ? "20px" : "0px", // Add padding for better readability on small screens
           }}
         >
-        {/* Video  */}
-        <Container
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100%",
-            padding:"100px 0px 0px 0px",
-          }}
-        >
-          <Grid container>
-            <Grid
-              item
-              xs={12} // For extra-small screens
-              sm={12} // For small screens
-              md={12} // For medium screens
-              lg={12} // For large screens
-              xl={12} // For extra-large screens
-            >
-              <video width="80%" height="80%" controls>
-                <source src="/path/to/your/local/video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+          {/* Video  */}
+          <Container
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100%",
+              padding: "100px 0px 0px 0px",
+            }}
+          >
+            <Grid container>
+              <Grid
+                item
+                xs={12} // For extra-small screens
+                sm={12} // For small screens
+                md={12} // For medium screens
+                lg={12} // For large screens
+                xl={12} // For extra-large screens
+              >
+                <video width="80%" height="80%" controls>
+                  <source
+                    src="/path/to/your/local/video.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </Grid>
             </Grid>
-          </Grid>
-        </Container>
+          </Container>
         </Paper>
 
         {/* Core Features  */}
 
-
-          <Grid
-            container
-            spacing={0}
-            sx={{ margin: "100px 0px", direction: "row" }}
-          >
-            {!isMdScreen ? (
-             <Grid
+        <Grid
+          container
+          spacing={0}
+          sx={{ margin: "100px 0px", direction: "row" }}
+        >
+          {!isMdScreen ? (
+            <Grid
               item
               xs={12} // For extra-small screens
               sm={12} // For small screens
@@ -673,74 +691,74 @@ function Homepage({ callback }) {
                 style={{ margin: "0px", width: "70%" }}
               />
             </Grid>
-            ):(null)}
-            <Grid
-              item
-              xs={12} // For extra-small screens
-              sm={12} // For small screens
-              md={6} // For medium screens
-              lg={6} // For large screens
-              xl={6}
+          ) : null}
+          <Grid
+            item
+            xs={12} // For extra-small screens
+            sm={12} // For small screens
+            md={6} // For medium screens
+            lg={6} // For large screens
+            xl={6}
+          >
+            <Paper
+              sx={{
+                backgroundColor: "transparent",
+                width: isSmScreen ? "100%" : "100%",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center", // Align content at the end
+                alignItems: isSmScreen ? "center" : "flex-end", // Center the content horizontally
+                marginLeft: "auto", // Push the Paper to the right
+              }}
             >
-              <Paper
+              <Container
+                width="100%"
                 sx={{
-                  backgroundColor: "transparent",
-                  width: isSmScreen ? "100%" : "100%",
-                  height: "100%",
                   display: "flex",
+                  justifyContent: "center",
                   flexDirection: "column",
-                  justifyContent: "center", // Align content at the end
-                  alignItems: isSmScreen ? "center" : "flex-end", // Center the content horizontally
-                  marginLeft: "auto", // Push the Paper to the right
+                  alignItems: isSmScreen ? "center" : "center",
                 }}
               >
-                <Container
-                  width="100%"
+                <Typography
+                  variant="h6"
                   sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    alignItems: isSmScreen ? "center" : "center",
+                    textAlign: isMdScreen ? "center" : "end",
+                    color: "#50A883",
+                    // color: "white",
+                    margin: "10px 20px 10px 20px",
+                    fontFamily: "Aclonica",
+                    fontSize: isSmScreen ? "40px" : "70px",
+                    width: "70%",
                   }}
                 >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      textAlign: isMdScreen ? "center" : "end",
-                      color: "#50A883",
-                      // color: "white",
-                      margin: "10px 20px 10px 20px",
-                      fontFamily: "Aclonica",
-                      fontSize: isSmScreen ? "50px" : "70px",
-                      width: "70%",
-                    }}
-                  >
-                    <strong> Core </strong>
-                    <br />
-                    <strong> Features </strong>
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      textAlign: isMdScreen ? "center" : "end",
-                      margin: "10px 20px 10px 20px",
-                      color: "white",
-                      fontFamily: "Lora",
-                      fontSize: "22px",
-                      width: "70%",
-                    }}
-                  >
-                    <strong>Swap</strong>
-                    <br />
-                    <strong>Bridge</strong>
-                    <br />
-                    <strong>Investor’s Pool</strong>
-                    <br />
-                  </Typography>
-                </Container>
-              </Paper>
-            </Grid>
-            {isMdScreen ? (
+                  <strong> Core </strong>
+                  <br />
+                  <strong> Features </strong>
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    textAlign: isMdScreen ? "center" : "end",
+                    margin: "10px 20px 10px 20px",
+                    color: "white",
+                    fontFamily: "Lora",
+                    fontSize: "22px",
+                    width: "70%",
+                  }}
+                >
+                  <strong>Swap</strong>
+                  <br />
+                  <strong>Bridge</strong>
+                  <br />
+                  <strong>Investor’s Pool</strong>
+                  <br />
+                </Typography>
+              </Container>
+            </Paper>
+          </Grid>
+          {isMdScreen ? (
             <Grid
               item
               xs={12} // For extra-small screens
@@ -756,15 +774,13 @@ function Homepage({ callback }) {
                 style={{ margin: "0px", width: "70%" }}
               />
             </Grid>
-            ):(null)}
-           
-          </Grid>
+          ) : null}
+        </Grid>
 
         {/* How AI-BITRAGE will work? */}
         <GlowingEffectContainer>
           <Grid container spacing={0} sx={{ margin: "0px", direction: "row" }}>
-          
-          <Grid
+            <Grid
               item
               xs={12} // For extra-small screens
               sm={12} // For small screens
@@ -783,81 +799,87 @@ function Homepage({ callback }) {
                   alignItems: isSmScreen ? "center" : "flex-start", // Center the content horizontally
                 }}
               >
-                <Container sx={{display:"flex", flexDirection:"column", alignItems:isMdScreen ? "center":"flex-start", justifyContent:isMdScreen ? "center":"flex-start"}}>
-                <Typography
-                  variant="h6"
+                <Container
                   sx={{
-                    textAlign: isLgScreen ? "center" : "start",
-                    color: "#50A883",
-                    // color: "white",
-                    margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
-                    fontFamily: "Aclonica",
-                    fontSize: 40,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: isMdScreen ? "center" : "flex-start",
+                    justifyContent: isMdScreen ? "center" : "flex-start",
                   }}
                 >
-                  <strong> How AI-BITRAGE will work? </strong>
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    textAlign: isLgScreen ? "center" : "start",
-                    margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
-                    color: "white",
-                    fontFamily: "Lora",
-                    fontSize: 20,
-                  }}
-                >
-                  The IDO is made for users to stake an amount of Ethereum, on
-                  each pool of their choice. Each pool will only allow a certain
-                  amount of users per month to stake Ethereum. E.G. each pool
-                  will allow a max of 250 users per month (31 days). When the
-                  month is over, users funds and profits will be unlocked from
-                  the pool’s and will be accessible for withdrawals back into
-                  the users wallets. The pool’s have been created to operate on
-                  a “first come ,first serve” basis.
-                </Typography>
-                <Button
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#50A883",
-                    color: "#ffff",
-                    borderRadius: "20px",
-                    margin: isMdScreen ? "35px 0px" : "35px 100px", // Center the button/
-                    display: "block",
-                    fontFamily: "Maragsa",
-                    // margin: "0 auto", // Center the button
-                  }}
-                  onClick={handleClick}
-                >
-                  Launch App
-                </Button>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      textAlign: isLgScreen ? "center" : "start",
+                      color: "#50A883",
+                      // color: "white",
+                      margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
+                      fontFamily: "Aclonica",
+                      fontSize: 40,
+                    }}
+                  >
+                    <strong> How AI-BITRAGE will work? </strong>
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: isLgScreen ? "center" : "start",
+                      margin: isSmScreen ? "20px" : "10px 90px 10px 100px",
+                      color: "white",
+                      fontFamily: "Lora",
+                      fontSize: 20,
+                    }}
+                  >
+                    The IDO is made for users to stake an amount of Ethereum, on
+                    each pool of their choice. Each pool will only allow a
+                    certain amount of users per month to stake Ethereum. E.G.
+                    each pool will allow a max of 250 users per month (31 days).
+                    When the month is over, users funds and profits will be
+                    unlocked from the pool’s and will be accessible for
+                    withdrawals back into the users wallets. The pool’s have
+                    been created to operate on a “first come ,first serve”
+                    basis.
+                  </Typography>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "#50A883",
+                      color: "#ffff",
+                      borderRadius: "20px",
+                      margin: isMdScreen ? "35px 0px" : "35px 100px", // Center the button/
+                      display: "block",
+                      fontFamily: "Maragsa",
+                      // margin: "0 auto", // Center the button
+                    }}
+                    onClick={handleClick}
+                  >
+                    Launch App
+                  </Button>
                 </Container>
               </Paper>
             </Grid>
-            
+
             {/* {!isMdScreen ? ( */}
-              <Grid
-                item
-                xs={12} // For extra-small screens
-                sm={12} // For small screens
-                md={6} // For medium screens
-                lg={6} // For large screens
-                xl={6}
-              >
-                <img
-                  src={new3}
-                  alt="logo"
-                  style={{
-                    position: "relative",
-                    right: "15%",
-                    margin: "0px",
-                    width: "100%",
-                  }}
-                />
-              </Grid>
+            <Grid
+              item
+              xs={12} // For extra-small screens
+              sm={12} // For small screens
+              md={6} // For medium screens
+              lg={6} // For large screens
+              xl={6}
+            >
+              <img
+                src={new3}
+                alt="logo"
+                style={{
+                  position: "relative",
+                  right: "15%",
+                  margin: "0px",
+                  width: "100%",
+                }}
+              />
+            </Grid>
             {/* ) : null} */}
-            
-            
           </Grid>
         </GlowingEffectContainer>
 

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Paper, Typography } from "@mui/material";
 import footer_img from "./images/footer.png";
 import Telegram from "./images/Telegram.png";
 import Discord from "./images/Discord.png";
+import Gitbook from "./images/Gitbook.png";
 import Twitter from "./images/Twitter.png";
+import new_bg2_2 from "./images/new_bg2_2.png";
+
 import "./fonts/fonts.css";
 import Header_Function from "./header";
 
@@ -23,336 +26,363 @@ function FooterFunction({ callback }) {
 
   return (
     <footer>
-      <Container
+      <Box
         sx={{
           height: "2px",
-          background: "white",
-          margin: "300px auto 50px auto",
+          width:"100%",
+          background: "#50A883",
+          margin: "0px auto 0px auto",
         }}
-      ></Container>
-      <Grid container sx={{ direction: "column" }}>
-        {/* Footer Logo */}
+      ></Box>
+      <Paper
+        sx={{
+          backgroundColor: "transparent",
+          backgroundImage: `url(${new_bg2_2})`,
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: isSmScreen ? "center" : "center",
+          textAlign: isSmScreen ? "center" : "center",
+          // padding: isSmScreen ? "20px" : "0px", // Add padding for better readability on small screens
+        }}
+      >
+        <Grid container sx={{ direction: "column" }}>
+          {/* Footer Logo */}
 
-        <Grid
-          item
-          xs={12}
-          md={12}
-          lg={12}
-          sx={{
-            margin: "20px auto",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <img
-            src={footer_img}
-            alt="footer"
-            style={{ margin: "0px auto", height: "120px" }}
-          />
-        </Grid>
-
-        {/* Footer Links and Texts*/}
-        <Grid
-          item
-          sx={{ margin: "0px auto", height: "auto" }}
-          sm={12}
-          md={12}
-          lg={8}
-        >
-          <Grid container sx={{ direction: "row", height: "100%" }}>
-            <Grid item xs={6} sm={6} md={6} lg={3}
-              sx={{
-                margin: "0px auto 20px auto",
-                display: "column",
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Lora",
-                  fontSize: isSmScreen ? "20px" : "30px",
-                  color: "white",
-                  lineHeight: "1.2",
-                  textAlign: "center",
-                }}
-              >
-                Policies
-                <br />
-                <br />
-              </Typography>
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Lora",
-                  fontSize: isSmScreen ? "16px" : "20px",
-                  color: "white",
-                  lineHeight: "1.2",
-                  cursor: "pointer",
-                  textDecoration: "underline",
-                  textAlign: "center",
-                }}
-                onClick={() => handleclick(10)}
-              >
-                Terms of use
-                <br />
-              </Typography>
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Lora",
-                  fontSize: isSmScreen ? "16px" : "20px",
-
-                  color: "white",
-                  lineHeight: "1.2",
-                  cursor: "pointer",
-                  textDecoration: "underline",
-                  textAlign: "center",
-                }}
-                onClick={() => handleclick(11)}
-              >
-                Cookie Policy
-                <br />
-              </Typography>
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Lora",
-                  fontSize: isSmScreen ? "16px" : "20px",
-
-                  color: "white",
-                  lineHeight: "1.2",
-                  cursor: "pointer",
-                  textDecoration: "underline",
-                  textAlign: "center",
-                }}
-                onClick={() => handleclick(12)}
-              >
-                Privacy Policy
-                <br />
-              </Typography>
-            </Grid>
-            <Grid item xs={6} sm={6} md={6} lg={3}
-              sx={{
-                margin: "0px auto 20px auto",
-                display: "column",
-                justifyContent: "flex-start",
-                alignItems: "center",
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Lora",
-                  fontSize: isSmScreen ? "16px" : "30px",
-
-                  color: "white",
-                  lineHeight: "1.2",
-                  textAlign: "center",
-                }}
-              >
-                AI-BITRAGE
-                <br />
-                <br />
-              </Typography>
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Lora",
-                  fontSize: isSmScreen ? "16px" : "20px",
-
-                  color: "white",
-                  lineHeight: "1.2",
-                  textAlign: "center",
-                }}
-              >
-                Trade/Swap
-                <br />
-                Liquidity
-                <br />
-                Pools
-                <br />
-                Governance
-              </Typography>
-            </Grid>
-            <Grid item xs={6} sm={6} md={6} lg={3}
-              sx={{
-                margin: "0px auto 20px auto",
-                display: "column",
-                justifyContent: "flex-start",
-                alignItems: "center",
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Lora",
-                  fontSize: isSmScreen ? "20px" : "30px",
-
-                  color: "white",
-                  lineHeight: "1.2",
-                  textAlign: "center",
-                }}
-              >
-                Developers
-                <br />
-                <br />
-              </Typography>
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Lora",
-                  fontSize: isSmScreen ? "16px" : "20px",
-
-                  color: "white",
-                  lineHeight: "1.2",
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  textAlign: "center",
-                }}
-                onClick={() => handleclick(4)}
-              >
-                Docs
-                <br />
-              </Typography>
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Lora",
-                  fontSize: isSmScreen ? "16px" : "20px",
-
-                  color: "white",
-                  lineHeight: "1.2",
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  textAlign: "center",
-                }}
-                onClick={() => handleclick(13)}
-              >
-                Bug Bounty
-                <br />
-              </Typography>
-            </Grid>
-            <Grid item xs={6} sm={6} md={6} lg={3}
-              sx={{
-                margin: "0px auto 20px auto",
-                display: "column",
-                justifyContent: "flex-start",
-                alignItems: "center",
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Lora",
-                  fontSize: isSmScreen ? "20px" : "30px",
-
-                  color: "white",
-                  lineHeight: "1.2",
-                  textAlign: "center",
-                }}
-              >
-                Community
-                <br />
-                <br />
-              </Typography>
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Lora",
-                  fontSize: isSmScreen ? "16px" : "20px",
-
-                  color: "white",
-                  lineHeight: "1.2",
-                  textAlign: "center",
-                }}
-              >
-                Discord
-                <br />
-                Medium
-                <br />
-                Reddit
-                <br />
-                Telegram
-                <br />
-                Twitter
-                <br />
-              </Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-
-        {/* Social Media icons */}
-
-        <Grid
-          item
-          sx={{ margin: "0px auto", height: "50px" }}
-          sm={12}
-          md={8}
-          lg={8}
-        >
           <Grid
-            container
-            sx={{ justifyContent: "center", alignItems: "center" }}
-          >
-            <Grid item sx={{ margin: "0px" }}>
-              <img
-                src={Twitter}
-                alt="Twitter"
-                style={{ height: "30px", width: "35px" }}
-              />
-            </Grid>
-            <Grid item sx={{ margin: "0px 30px" }}>
-              <img
-                src={Discord}
-                alt="Discord"
-                style={{ height: "30px", width: "35px" }}
-              />
-            </Grid>
-            <Grid item sx={{ margin: "0px" }}>
-              <img
-                src={Telegram}
-                alt="Telegram"
-                style={{ height: "30px", width: "35px" }}
-              />
-            </Grid>
-          </Grid>
-        </Grid>
-
-        {/* Bottom White line */}
-
-        <Grid item xs={12} sm={12} md={12} lg={12}>
-          <Container
+            item
+            xs={12}
+            md={12}
+            lg={12}
             sx={{
-              height: "2px",
-              background: "white",
-              margin: "10px auto 10px auto",
-            }}
-          ></Container>
-        </Grid>
-
-        {/* Copyright */}
-
-        <Grid item xs={12} sm={12} md={12} lg={12}>
-          <Typography
-            sx={{
-              textAlign: "center",
-              color: "white",
+              margin: "20px auto",
               display: "flex",
               justifyContent: "center",
-              margin:"15px",
               alignItems: "center",
-              fontFamily: "Poppins",
-              fontSize: 20,
             }}
           >
-            Copyright 2023. All Rights Reserved. Designed and Developed by
-            Meptics ltd.
-          </Typography>
+            <img
+              src={footer_img}
+              alt="footer"
+              style={{ margin: "0px auto", height: "120px" }}
+            />
+          </Grid>
+
+          {/* Footer Links and Texts*/}
+          <Grid
+            item
+            sx={{ margin: "0px auto", height: "auto" }}
+            sm={12}
+            md={12}
+            lg={8}
+          >
+            <Grid container sx={{ direction: "row", height: "100%" }}>
+              <Grid
+                item
+                xs={6}
+                sm={6}
+                md={6}
+                lg={3}
+                sx={{
+                  margin: "0px auto 20px auto",
+                  display: "column",
+                  justifyContent: "flex-start",
+                  alignItems: "flex-start",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: "Aclonica",
+                    fontSize: isSmScreen ? "20px" : "30px",
+                    color: "#50A883",
+                    lineHeight: "1.2",
+                    textAlign: "center",
+                  }}
+                >
+                  Policies
+                  <br />
+                  <br />
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: "Lora",
+                    fontSize: isSmScreen ? "16px" : "20px",
+                    color: "white",
+                    lineHeight: "1.2",
+                    cursor: "pointer",
+                    // textDecoration: "underline",
+                    textAlign: "center",
+                  }}
+                  onClick={() => handleclick(10)}
+                >
+                  Terms of use
+                  <br />
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: "Lora",
+                    fontSize: isSmScreen ? "16px" : "20px",
+
+                    color: "white",
+                    lineHeight: "1.2",
+                    cursor: "pointer",
+                    // textDecoration: "underline",
+                    textAlign: "center",
+                  }}
+                  onClick={() => handleclick(11)}
+                >
+                  Cookie Policy
+                  <br />
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: "Lora",
+                    fontSize: isSmScreen ? "16px" : "20px",
+
+                    color: "white",
+                    lineHeight: "1.2",
+                    cursor: "pointer",
+                    // textDecoration: "underline",
+                    textAlign: "center",
+                  }}
+                  onClick={() => handleclick(12)}
+                >
+                  Privacy Policy
+                  <br />
+                </Typography>
+              </Grid>
+              <Grid
+                item
+                xs={6}
+                sm={6}
+                md={6}
+                lg={3}
+                sx={{
+                  margin: "0px auto 20px auto",
+                  display: "column",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: "Aclonica",
+                    fontSize: isSmScreen ? "16px" : "30px",
+                    color: "#50A883",
+                    textAlign: "center",
+                    lineHeight: "1.2",
+                  }}
+                >
+                  AI-BITRAGE
+                  <br />
+                  <br />
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: "Lora",
+                    fontSize: isSmScreen ? "16px" : "20px",
+
+                    color: "white",
+                    lineHeight: "1.2",
+                    textAlign: "center",
+                  }}
+                >
+                  Trade/Swap
+                  <br />
+                  Investor’s Pools
+                  <br />
+                </Typography>
+              </Grid>
+              <Grid
+                item
+                xs={6}
+                sm={6}
+                md={6}
+                lg={3}
+                sx={{
+                  margin: "0px auto 20px auto",
+                  display: "column",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: "Aclonica",
+                    fontSize: isSmScreen ? "20px" : "30px",
+                    color: "#50A883",
+                    textAlign: "center",
+                    lineHeight: "1.2",
+                  }}
+                >
+                  Developers
+                  <br />
+                  <br />
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: "Lora",
+                    fontSize: isSmScreen ? "16px" : "20px",
+
+                    color: "white",
+                    lineHeight: "1.2",
+                    // textDecoration: "underline",
+                    cursor: "pointer",
+                    textAlign: "center",
+                  }}
+                  onClick={() => handleclick(4)}
+                >
+                  Docs
+                  <br />
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: "Lora",
+                    fontSize: isSmScreen ? "16px" : "20px",
+
+                    color: "white",
+                    lineHeight: "1.2",
+                    // textDecoration: "underline",
+                    cursor: "pointer",
+                    textAlign: "center",
+                  }}
+                  onClick={() => handleclick(13)}
+                >
+                  Bug Bounty
+                  <br />
+                </Typography>
+              </Grid>
+              <Grid
+                item
+                xs={6}
+                sm={6}
+                md={6}
+                lg={3}
+                sx={{
+                  margin: "0px auto 20px auto",
+                  display: "column",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: "Aclonica",
+                    fontSize: isSmScreen ? "20px" : "30px",
+                    color: "#50A883",
+                    textAlign: "center",
+                    lineHeight: "1.2",
+                  }}
+                >
+                  Community
+                  <br />
+                  <br />
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: "Lora",
+                    fontSize: isSmScreen ? "16px" : "20px",
+
+                    color: "white",
+                    lineHeight: "1.2",
+                    textAlign: "center",
+                  }}
+                >
+                  Gitbook
+                  <br />
+                  Telegram
+                  <br />
+                  Twitter
+                  <br />
+                </Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+
+          {/* Social Media icons */}
+
+          <Grid
+            item
+            sx={{ margin: "0px auto", height: "50px" }}
+            sm={12}
+            md={8}
+            lg={8}
+          >
+            <Grid
+              container
+              sx={{ justifyContent: "center", alignItems: "center" }}
+            >
+              <Grid item sx={{ margin: "0px" }}>
+                <img
+                  src={Twitter}
+                  alt="Twitter"
+                  style={{ height: "30px", width: "35px" }}
+                />
+              </Grid>
+              <Grid item sx={{ margin: "0px 30px" }}>
+                <img
+                  src={Gitbook}
+                  alt="Gitbook"
+                  style={{ height: "30px", width: "35px" }}
+                />
+              </Grid>
+              <Grid item sx={{ margin: "0px" }}>
+                <img
+                  src={Telegram}
+                  alt="Telegram"
+                  style={{ height: "30px", width: "35px" }}
+                />
+              </Grid>
+            </Grid>
+          </Grid>
+
+          {/* Bottom White line */}
+
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Box
+              sx={{
+                height: "2px",
+                width:"100%",
+                background: "#50A883",
+                margin: "10px auto 10px auto",
+              }}
+            ></Box>
+          </Grid>
+
+          {/* Copyright */}
+
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Typography
+              sx={{
+                textAlign: "center",
+                color: "white",
+                display: "flex",
+                justifyContent: "center",
+                margin: "15px",
+                alignItems: "center",
+                fontFamily: "Poppins",
+                fontSize: 14,
+              }}
+            >
+              Copyright 2023. All Rights Reserved. Designed and Developed by
+              Meptics ltd.
+            </Typography>
+          </Grid>
         </Grid>
-      </Grid>
+      </Paper>
     </footer>
   );
 }

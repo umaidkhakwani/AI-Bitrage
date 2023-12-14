@@ -61,7 +61,7 @@ function Header_Function() {
     background-color: transparent;
     margin: ${({ isSmScreen }) => (isSmScreen ? "20px 0px 0px 0px" : "0px")};
     width: ${({ isSmScreen }) =>
-      isSmScreen ? "100%" : "60%"}; /* Ensure the tabs take the full width */
+      isSmScreen ? "90%" : "60%"}; /* Ensure the tabs take the full width */
   `;
   const TabItem = styled.div`
     padding: 10px 20px;
@@ -118,6 +118,16 @@ function Header_Function() {
           margin: 0,
           padding: 0,
           backgroundColor: "black",
+          '&::-webkit-scrollbar': {
+            width: '12px',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            background: 'linear-gradient(transparent, #50A883)',
+            borderRadius: '6px',
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            background: 'linear-gradient(transparent, #50A883)',
+          },
         }}
       >
         {/* <Paper
